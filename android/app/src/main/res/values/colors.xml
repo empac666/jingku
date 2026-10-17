@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="seed_primary">#5B5BD6</color>
+    <color name="seed_secondary">#7C4DFF</color>
+    <color name="highlight_match">#33FFC107</color>
+    <color name="ic_launcher_bg">#3D4FC3</color>
+    <color name="low_confidence">#B45309</color>
+</resources>

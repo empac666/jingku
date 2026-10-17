@@ -1,0 +1,80 @@
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+}
+
+android {
+    namespace = "com.broll.poc"
+    compileSdk = 35
+
+    defaultConfig {
+        applicationId = "com.broll.poc"
+        minSdk = 26
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0.0"
+        ndk {
+            abiFilters += listOf("arm64-v8a")
+        }
+    }
+
+    testOptions {
+        unitTests.isIncludeAndroidResources = false
+    }
+
+    buildTypes {
+        debug {
+            isMinifyEnabled = false
+            isShrinkResources = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro",
+            )
+        }
+        release {
+            isMinifyEnabled = false
+            isShrinkResources = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro",
+            )
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    packaging {
+        jniLibs {
+            useLegacyPackaging = false
+        }
+    }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+    }
+}
+
+dependencies {
+    implementation("androidx.core:core-ktx:1.15.0")
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("androidx.activity:activity-ktx:1.10.1")
+    implementation("com.google.android.material:material:1.12.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.11.0")
+    // Official LiteRT-LM Android artifact (Google Maven, verified 0.18.0).
+    // API: EmbeddingEngine / EmbeddingEngineConfig / InputData / EmbeddingOptions.
+    implementation("com.google.ai.edge.litertlm:litertlm-android:0.18.0")
+    // Official sherpa-onnx Android artifact via JitPack (see k2-fsa.github.io/sherpa/onnx/java-api/anroid-java.html)
+    implementation("com.github.k2-fsa.sherpa-onnx:sherpa-onnx:v1.13.5")
+    implementation("org.apache.commons:commons-compress:1.27.1")
+    implementation("androidx.sqlite:sqlite-android:2.7.1")
+    implementation("androidx.sqlite:sqlite-bundled-android:2.7.1")
+    testImplementation("androidx.sqlite:sqlite-bundled-jvm:2.7.1")
+    testImplementation("junit:junit:4.13.2")
+}

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Jingku</string>
+    <string name="app_name_en">Jingku</string>
+    <string name="lang_switch">中文</string>
+    <string name="lang_switch_zh">中文</string>
+
+    <string name="status_ready">Ready</string>
+    <string name="status_dialogue_count">%1$d dialogue segments indexed</string>
+    <string name="status_db_unavailable">Index database unavailable</string>
+
+    <string name="section_models">Model setup</string>
+    <string name="model_embed">EmbeddingGemma text embeddings</string>
+    <string name="model_asr">SenseVoice speech recognition</string>
+    <string name="model_vad">Silero VAD (optional)</string>
+    <string name="model_ready">Ready</string>
+    <string name="model_missing">Not downloaded</string>
+    <string name="btn_download_embed">Download embedding model</string>
+    <string name="btn_download_asr">Download ASR</string>
+    <string name="btn_download_vad">Download VAD</string>
+    <string name="download_progress">%1$s %2$s / %3$s MB</string>
+
+    <string name="section_import">Import videos</string>
+    <string name="btn_pick_gallery">Gallery (multi)</string>
+    <string name="btn_pick_saf">Files (multi)</string>
+    <string name="import_queue_count">%1$d videos selected</string>
+    <string name="import_none">No videos selected</string>
+
+    <string name="btn_start_index">Start indexing</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="index_stage_decode">Decoding audio…</string>
+    <string name="index_stage_transcribe">SenseVoice transcribing…</string>
+    <string name="index_stage_embed">Embedding %1$d / %2$d</string>
+    <string name="index_progress_batch">Video %1$d / %2$d · %3$s</string>
+    <string name="index_engine_init">Initializing embedder…</string>
+    <string name="index_notification_start">Indexing…</string>
+    <string name="index_channel_name">Indexing</string>
+    <string name="index_channel_desc">Long-running video indexing</string>
+    <string name="index_done">Done: %1$d dialogue segments</string>
+    <string name="index_cancelled">Indexing cancelled</string>
+    <string name="index_need_video">Select videos first</string>
+    <string name="index_need_asr">Download SenseVoice first</string>
+    <string name="index_need_embed">Download embedding model first</string>
+    <string name="index_busy">Task in progress</string>
+
+    <string name="section_search">Search dialogue</string>
+    <string name="hint_search">Query dialogue (semantic Top-3)</string>
+    <string name="btn_search">Search</string>
+    <string name="search_empty">No results</string>
+    <string name="search_done">%1$d hits in %2$d ms</string>
+    <string name="low_confidence_hint">May be inaccurate</string>
+    <string name="result_meta_format">%1$s – %2$s · cosine %3$.3f</string>
+    <string name="play_seek">Play at %1$.1fs</string>
+
+    <string name="db_dialog_title">Index database</string>
+    <string name="db_dialog_rebuild">Wipe and rebuild</string>
+    <string name="db_dialog_later">Later</string>
+    <string name="db_rebuilt">Database rebuilt</string>
+    <string name="db_rebuild_hint">Index cleared. Re-index your videos.</string>
+
+    <string name="player_title">Player</string>
+    <string name="index_overall">Overall: %1$d / %2$d videos complete</string>
+    <string name="play_error">Cannot play this video. Regrant access or try another format.</string>
+    <string name="about_licenses">About and licenses</string>
+    <string name="model_attribution">SenseVoiceSmall · FunASR / FunAudioLLM (Alibaba)
+EmbeddingGemma 2 · Google DeepMind
+Long press the title for model terms and open source licenses</string>
+</resources>

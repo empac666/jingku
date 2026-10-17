@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">镜库</string>
+    <string name="app_name_en">Jingku</string>
+    <string name="lang_switch">English</string>
+    <string name="lang_switch_zh">中文</string>
+
+    <string name="status_ready">就绪</string>
+    <string name="status_dialogue_count">已索引台词 %1$d 条</string>
+    <string name="status_db_unavailable">索引库未打开，请按提示处理</string>
+
+    <string name="section_models">模型准备</string>
+    <string name="model_embed">EmbeddingGemma 文本嵌入</string>
+    <string name="model_asr">SenseVoice 语音识别</string>
+    <string name="model_vad">Silero VAD（可选）</string>
+    <string name="model_ready">已就绪</string>
+    <string name="model_missing">未下载</string>
+    <string name="btn_download_embed">下载嵌入模型</string>
+    <string name="btn_download_asr">下载 ASR</string>
+    <string name="btn_download_vad">下载 VAD</string>
+    <string name="download_progress">%1$s %2$s / %3$s MB</string>
+
+    <string name="section_import">导入视频</string>
+    <string name="btn_pick_gallery">相册（可多选）</string>
+    <string name="btn_pick_saf">文件（可多选）</string>
+    <string name="import_queue_count">已选 %1$d 个视频</string>
+    <string name="import_none">尚未选择视频</string>
+
+    <string name="btn_start_index">开始索引</string>
+    <string name="btn_cancel">取消</string>
+    <string name="index_stage_decode">正在解码音轨…</string>
+    <string name="index_stage_transcribe">SenseVoice 转写中…</string>
+    <string name="index_stage_embed">台词嵌入 %1$d / %2$d</string>
+    <string name="index_progress_batch">视频 %1$d / %2$d · %3$s</string>
+    <string name="index_engine_init">正在初始化嵌入引擎…</string>
+    <string name="index_notification_start">正在建索引…</string>
+    <string name="index_channel_name">索引任务</string>
+    <string name="index_channel_desc">长时间视频索引</string>
+    <string name="index_done">索引完成：%1$d 段台词</string>
+    <string name="index_cancelled">索引已取消</string>
+    <string name="index_need_video">请先选择视频</string>
+    <string name="index_need_asr">请先下载 SenseVoice</string>
+    <string name="index_need_embed">请先下载嵌入模型</string>
+    <string name="index_busy">有任务进行中</string>
+
+    <string name="section_search">搜索台词</string>
+    <string name="hint_search">输入要找的台词（语义 Top-3）</string>
+    <string name="btn_search">搜索</string>
+    <string name="search_empty">没有结果</string>
+    <string name="search_done">找到 %1$d 条，耗时 %2$d ms</string>
+    <string name="low_confidence_hint">可能不准确</string>
+    <string name="result_meta_format">%1$s – %2$s · 余弦 %3$.3f</string>
+    <string name="play_seek">播放 %1$.1fs</string>
+
+    <string name="db_dialog_title">索引库需要处理</string>
+    <string name="db_dialog_rebuild">清空并重建</string>
+    <string name="db_dialog_later">稍后</string>
+    <string name="db_rebuilt">数据库已重建</string>
+    <string name="db_rebuild_hint">索引库已清空，请重新索引视频。</string>
+
+    <string name="player_title">播放器</string>
+    <string name="index_overall">总进度：已完成 %1$d / %2$d 个视频</string>
+    <string name="play_error">无法播放此视频，请重新授权文件或尝试其他格式</string>
+    <string name="about_licenses">关于与许可证</string>
+    <string name="model_attribution">SenseVoiceSmall · FunASR / FunAudioLLM（Alibaba）
+EmbeddingGemma 2 · Google DeepMind
+长按标题查看模型条款与开源许可</string>
+</resources>

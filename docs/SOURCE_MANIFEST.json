@@ -1,0 +1,281 @@
+{
+  "source": "iter2 final Android baseline, polished in release/app",
+  "files": [
+    {
+      "path": "android/app/build.gradle.kts",
+      "sha256": "89fa67558a7fa57de382dc7f1ed6d8101e7802b653735097d17b300a5a5f9675"
+    },
+    {
+      "path": "android/app/proguard-rules.pro",
+      "sha256": "67afdf123b16303afc404696de31a76b07053e92e571868a1ce00c0418bee78e"
+    },
+    {
+      "path": "android/app/src/main/AndroidManifest.xml",
+      "sha256": "d267f029a5a6b4d5ffcd207bd16ece886aadac08d506419d9cb6cd89b0f68374"
+    },
+    {
+      "path": "android/app/src/main/assets/NOTICE.txt",
+      "sha256": "a1b51bd786a91839f77093f4a88089b3a0327a982758119810553217bdc24904"
+    },
+    {
+      "path": "android/app/src/main/assets/licenses/Commons-Compress-LICENSE.txt",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "android/app/src/main/assets/licenses/Commons-Compress-NOTICE.txt",
+      "sha256": "28a309fd415da6e802ecf85061a451f7ac4353f3610f2982f7af29e9d1529289"
+    },
+    {
+      "path": "android/app/src/main/assets/licenses/FunASR-MODEL_LICENSE.txt",
+      "sha256": "7dba975a2069691db4992b0592d70828b330d2f8a30a71450f4e152a554e84f8"
+    },
+    {
+      "path": "android/app/src/main/assets/licenses/Gradle-wrapper-LICENSE.txt",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    },
+    {
+      "path": "android/app/src/main/assets/licenses/Kotlin-coroutines-Apache-2.0.txt",
+      "sha256": "b1febe6399dffb10d19d35e7663ab16300c93cb0476a94115df1cc0097a8ffd8"
+    },
+    {
+      "path": "android/app/src/main/assets/licenses/LICENSING.md",
+      "sha256": "7faa19769d322746737a13141f65006931adf0ed2a2ef65d9ae376d30b4f94a0"
+    },
+    {
+      "path": "android/app/src/main/assets/licenses/LiteRT-LM-Apache-2.0.txt",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "android/app/src/main/assets/licenses/Material-Apache-2.0.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "android/app/src/main/assets/licenses/ONNXRuntime-MIT.txt",
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c"
+    },
+    {
+      "path": "android/app/src/main/assets/licenses/SenseVoice-code-MIT.txt",
+      "sha256": "4bc3bffe14ebe38cc67309991e04f92866835eac1c5e2e1abd37163f67c6de5f"
+    },
+    {
+      "path": "android/app/src/main/assets/licenses/Silero-MIT.txt",
+      "sha256": "2e63e9a38b6e8fc0c7bc37ce174caca1862870856c6daf5697cfb785e925520b"
+    },
+    {
+      "path": "android/app/src/main/assets/licenses/sherpa-onnx-Apache-2.0.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/AppConfig.kt",
+      "sha256": "c2f8dcee2e1fb691d0603f7f805f87364afc5456fb053a60641fb03cae028c05"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/BrollApplication.kt",
+      "sha256": "c26e64bd30c3ef1fa455536a67718122369c640d7157da5124c809fe7dcb9b54"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/EngineHolder.kt",
+      "sha256": "056bc6cb1fa2f3ebd00cd179f876b85e320d28f789838423bd02592ad3f94a1d"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/IndexForegroundService.kt",
+      "sha256": "c4ab77d970b37b618b3c1e9924dde5aa7d400ed570170c27a23218a38006366a"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/IndexProgress.kt",
+      "sha256": "12801309f964e20c5cab087c43add959ec405721f77d071b0d6134e602c4d3a7"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/LocaleStore.kt",
+      "sha256": "ca52f7c8cb5f6c7e48d08dc57d749605e93a5d9bb7d3c1d6a270b28d00659712"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/MainActivity.kt",
+      "sha256": "5b1461e70694529cf162bfafcf6bd897ca93a2102cacaa9013e7890714ac3641"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/asr/SherpaTranscriber.kt",
+      "sha256": "5cb2fd90a393e97a4a0c63882b7e0f5b6d064af709f4121c3205003dac3f8469"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/data/BundledDb.kt",
+      "sha256": "94d174909386d9232984a573165d7ce4bcb6d6c02718152edcabb6a136b29c75"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/data/BundledSqliteOpen.kt",
+      "sha256": "f2bf921850132184e1802d8d90338deb1323a6cf931913964023a6bf65527b68"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/data/IndexDatabase.kt",
+      "sha256": "14f7e19c4447ddaa740c61208e170fff8020570f5a6eed5fb2ed545701baebe2"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/embed/Embedder.kt",
+      "sha256": "7191958445959b9d4b023447cde773583f5c492e5f60b7004a266a0ac56ba997"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/embed/VectorMath.kt",
+      "sha256": "5bdab9c38cbd3e5289e72de61e48805e5ec88152199b165d200bd56d0c011c3f"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/index/AudioResampler.kt",
+      "sha256": "7eda406e7a8ded0fe95f13cb7d8838c71fd3a9636c9fa2e10fc909587a6047ca"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/index/FtsText.kt",
+      "sha256": "09c1d96a7b27abfa17299154a0390f03c6ee84e99b821cbfa18cb0adb4733804"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/index/MediaPipeline.kt",
+      "sha256": "4e4457f1fac438c904e160ae6d5251037a195516637b8a79c7af91514bbee592"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/index/PcmMono.kt",
+      "sha256": "9a969384e59e610bbe421fd0efc3c6c754063ef163e8d12ccaff920cec637000"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/index/SeekTimestamp.kt",
+      "sha256": "28dc4f7e08e5ae50e50282c7906c95bca0586a1b3d1739876dc4566383c203f7"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/index/VideoIndexer.kt",
+      "sha256": "d1a61f1a9b192282c6c6615b369e3b0f9817e415c386211fd2564b014dcaeb09"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/metrics/MetricsLogger.kt",
+      "sha256": "7bb9e230d0590ee1bb7d0b2236f641028ced30c10f85d51893fc7260d37b89e5"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/model/AsrModelStore.kt",
+      "sha256": "a34e48a8601f5ff3aa4b189d6b6a4de64da6394576e339037f517b79c6c81b77"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/model/ModelStore.kt",
+      "sha256": "1386a800ada2353a022ee5bac334ee44f2492282f235621878d9125a208f8fd4"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/ui/DialogueHighlighter.kt",
+      "sha256": "08651df64714f7368cbbb13bcd2e8e984fc4bebeedf83145a5eb63958631e2c4"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/ui/SearchResultBinder.kt",
+      "sha256": "4ac124c52f11f80186eb9f3635018e1068d32c406ce4adfe4a4e0adf5aabb9df"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/ui/VideoFrameThumb.kt",
+      "sha256": "4421a46df08b221f5743d271b7a8029dc107930c74d3857150ec89bcf1ccd167"
+    },
+    {
+      "path": "android/app/src/main/res/drawable/ic_launcher_background.xml",
+      "sha256": "fb6d7a062342c1e29ebdfc393a2a1a4524e2b1d5916fddada93f25c34b4f3846"
+    },
+    {
+      "path": "android/app/src/main/res/drawable/ic_launcher_foreground.xml",
+      "sha256": "9b85bda25fc24583fd8219b7ef3c82d71956489902f68113a10e65e9c39959b2"
+    },
+    {
+      "path": "android/app/src/main/res/drawable/ic_launcher_legacy.xml",
+      "sha256": "8aea2341d9241d61a36ab8ffc29a9b36ea01cf8b86c4db477e80a40da231360c"
+    },
+    {
+      "path": "android/app/src/main/res/drawable/ic_notification.xml",
+      "sha256": "d6e1f64993b273a48eb734f1c69078388c9e400d46a311d9f4869ef4a55369d6"
+    },
+    {
+      "path": "android/app/src/main/res/layout/activity_main.xml",
+      "sha256": "64dcfd87eef2ca523c018fb7d4bd004e78b3bf2654d07aa96f7e3b176f045e3f"
+    },
+    {
+      "path": "android/app/src/main/res/layout/item_search_result.xml",
+      "sha256": "4447b4ca0b245a4f3296b4056ced305317bd2e10053f82d296163fe6d40374f8"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+      "sha256": "1c832bf194d8eecd439a92bcced0df144c9f566b934b3d7865e983d8ee8dbdeb"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml",
+      "sha256": "1c832bf194d8eecd439a92bcced0df144c9f566b934b3d7865e983d8ee8dbdeb"
+    },
+    {
+      "path": "android/app/src/main/res/values/colors.xml",
+      "sha256": "4fbca6eb3553291097adbb4d640f8ccce9840118c1d003b2f8a49e8fa1ed0e21"
+    },
+    {
+      "path": "android/app/src/main/res/values/strings.xml",
+      "sha256": "9de1badb00c7e42db12d7a935d8efdb0f2e8e0ce68f0e72f831ae75e7ae68992"
+    },
+    {
+      "path": "android/app/src/main/res/values/themes.xml",
+      "sha256": "07b9f916846fc4f331b785bc016e2ffd36dbfd1d7733d69a49fa5d4d469f45a4"
+    },
+    {
+      "path": "android/app/src/main/res/values-en/strings.xml",
+      "sha256": "d6f87f2dfbf05f76bb1bd091166470889b93846c16fa3437f7790e2196928f95"
+    },
+    {
+      "path": "android/app/src/main/res/values-night/colors.xml",
+      "sha256": "67b8518ea4960889289d7383ccd4c0c1355b7561c3f6a368d5c44becfac7b01a"
+    },
+    {
+      "path": "android/app/src/main/res/values-night/themes.xml",
+      "sha256": "07b9f916846fc4f331b785bc016e2ffd36dbfd1d7733d69a49fa5d4d469f45a4"
+    },
+    {
+      "path": "android/app/src/test/java/com/broll/poc/data/BundledDbTransactionTest.kt",
+      "sha256": "32532782b20b1c2302e2a46921cb60590c3e69283b1c5dc7b10ce4c9196e83b6"
+    },
+    {
+      "path": "android/app/src/test/java/com/broll/poc/data/SemanticRetrievalTest.kt",
+      "sha256": "b3e660d10c57f90c3773db26035fa7e3e4b589fdbd02556217071ed7e97c5875"
+    },
+    {
+      "path": "android/app/src/test/java/com/broll/poc/index/AudioResamplerTest.kt",
+      "sha256": "63ba86037d7d639c51583f1ee7060ea6db473a86b403723e350326fe22fad757"
+    },
+    {
+      "path": "android/app/src/test/java/com/broll/poc/index/FtsOrRecallTest.kt",
+      "sha256": "1b37a1ac74205c80762cdd0c8399340bc84ccb73b01380f1de084f4a6cd4d3fc"
+    },
+    {
+      "path": "android/app/src/test/java/com/broll/poc/index/FtsTextTest.kt",
+      "sha256": "e9365962cdab7f291af3334019c3dc50d359e5672f93e1dc9e3ea1e01395beb8"
+    },
+    {
+      "path": "android/app/src/test/java/com/broll/poc/index/PcmDecodeTailTest.kt",
+      "sha256": "284416b181d5dce98a8100207211001ff2d5c67af39f9a662568b257a1419c7a"
+    },
+    {
+      "path": "android/app/src/test/java/com/broll/poc/index/SeekTimestampTest.kt",
+      "sha256": "834ffa17644febdc0b4ca813bef2256d8456da1ade3a28ba663b5ae4f6f1e911"
+    },
+    {
+      "path": "android/build.gradle.kts",
+      "sha256": "bb7bb9da50bd5a174138e4e4827ab2062dfccb25326c1abe2995c63cd8197349"
+    },
+    {
+      "path": "android/gradle/wrapper/gradle-wrapper.jar",
+      "sha256": "81a82aaea5abcc8ff68b3dfcb58b3c3c429378efd98e7433460610fecd7ae45f"
+    },
+    {
+      "path": "android/gradle/wrapper/gradle-wrapper.properties",
+      "sha256": "6420a0e9a6966590e02b91f100693a60edc38f617f9b1cff4f896e00d9986fbe"
+    },
+    {
+      "path": "android/gradle.properties",
+      "sha256": "4c0f6f17a1b29023de7942a73502c9f74e2cb3451397d4e2275e1e5fa2e4d121"
+    },
+    {
+      "path": "android/gradlew",
+      "sha256": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933"
+    },
+    {
+      "path": "android/gradlew.bat",
+      "sha256": "57931b17dd228e5c24dac90e815d0bf82477e831a4618dfab4136f5446b42a9f"
+    },
+    {
+      "path": "android/settings.gradle.kts",
+      "sha256": "aa53bd0c1cdff5ea88a58cd6abd9e3709cffc77cedf844be5d767511b1c5e79b"
+    }
+  ]
+}

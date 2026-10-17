@@ -1,0 +1,6 @@
+{
+  "source": "iter1/freeze.json",
+  "sensevoice_S2": 0.7889297604560853,
+  "purpose": "historical UI warning only; not recalibrated for release APK",
+  "iter5_refusal_threshold_separate": 0.743815303
+}

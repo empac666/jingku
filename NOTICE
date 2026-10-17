@@ -1,0 +1,8 @@
+Jingku / 镜库 — original app source: MIT, Copyright (c) 2026 Jingku contributors.
+Third-party runtimes keep their own licenses; see docs/LICENSING.md and licenses/.
+SenseVoiceSmall by FunASR / FunAudioLLM (Alibaba Group); sherpa-onnx conversion by k2-fsa.
+Official SenseVoiceSmall weights: FunASR Model Open Source License Agreement v1.1, not MIT.
+EmbeddingGemma 2 by Google DeepMind; LiteRT conversion by litert-community: Apache-2.0.
+sherpa-onnx, LiteRT-LM, AndroidX, Material Components, Commons Compress, Kotlin coroutines: Apache-2.0.
+ONNX Runtime, Silero VAD: MIT.
+No model weights or third-party media are distributed in this source repository or APK.

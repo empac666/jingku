@@ -1,0 +1,26 @@
+# Local-only signing material
+secrets/
+*.jks
+*.keystore
+*.p12
+*.pem
+.env
+.env.*
+local.properties
+**/local.properties
+.gradle/
+**/.gradle/
+build/
+**/build/
+*.apk
+*.aab
+# Model weights never belong in source control
+*.onnx
+*.litertlm
+*.gguf
+*.safetensors
+*.pt
+*.tar.bz2
+.DS_Store
+
+**/.kotlin/

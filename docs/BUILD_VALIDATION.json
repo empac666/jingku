@@ -1,0 +1,53 @@
+{
+  "bytes": 62141734,
+  "mib": 59.26,
+  "sha256": "f3693c454fef37bada9f2a54af780eeebbd6e361894221b904753c94b3eb3df6",
+  "abis": [
+    "arm64-v8a"
+  ],
+  "native_libraries": [
+    {
+      "path": "lib/arm64-v8a/liblitertlm_jni.so",
+      "bytes": 22155680,
+      "zip_data_16kb_aligned": true
+    },
+    {
+      "path": "lib/arm64-v8a/libonnxruntime.so",
+      "bytes": 21684880,
+      "zip_data_16kb_aligned": true
+    },
+    {
+      "path": "lib/arm64-v8a/libsherpa-onnx-c-api.so",
+      "bytes": 4453168,
+      "zip_data_16kb_aligned": true
+    },
+    {
+      "path": "lib/arm64-v8a/libsherpa-onnx-cxx-api.so",
+      "bytes": 440744,
+      "zip_data_16kb_aligned": true
+    },
+    {
+      "path": "lib/arm64-v8a/libsherpa-onnx-jni.so",
+      "bytes": 4757872,
+      "zip_data_16kb_aligned": true
+    },
+    {
+      "path": "lib/arm64-v8a/libsqliteJni.so",
+      "bytes": 1281456,
+      "zip_data_16kb_aligned": true
+    }
+  ],
+  "unit_tests": {
+    "tests": 21,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "apk_contains_model_weights": false,
+  "apk_contains_signing_material": false,
+  "apk_contains_stub_or_preview": false,
+  "minify_enabled": false,
+  "screenshot_type": "labelled HTML high-fidelity renders; synthetic demo data; not Android or physical-device captures",
+  "physical_device_tested": false,
+  "gitleaks_directory_findings": 0
+}
