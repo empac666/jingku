@@ -1,4 +1,4 @@
-# Jingku / 镜库 1.0.1 — local release candidate
+# Jingku / 镜库 1.0.2 — local release candidate
 
 中文 pitch：用一句话，找回本地视频里说过的那一刻。
 
@@ -16,3 +16,5 @@ This is a locally built release candidate, not a published store release. See RE
 Build note: release shrinking/obfuscation is disabled. The inherited Kotlin/R8 combination emitted metadata warnings and an actual Metaspace OOM; this candidate uses D8 with JNI/runtime names preserved. `testReleaseUnitTest` includes the full-768 retrieval regression in addition to the inherited FIR/resampling, seek, FTS-schema and SQLite transaction tests. Artifact validation is recorded in `docs/BUILD_VALIDATION.json`.
 
 1.0.1 (versionCode 2): fixed EmbeddingGemma to HF commit 24d962e906c7d332c6428e71c9676855024569e2, retained the explicit GitHub asr-models release tag and pinned SHA-256 for the ASR archive, extracted ONNX/tokens and VAD. Existing files and downloads are verified; corrupt files are deleted and a corrupt download is retried once. Local tmp import/fallback is debug-only. Release lint is enabled. Fixed per-video dialogue SQL counting with regression coverage, localized the seek fallback note, and stopped computing/storing unused 256-D vectors (legacy column remains empty). Corrected labelled HTML renders with attribution and optional VAD.
+
+1.0.2 (versionCode 3): fixes an early-startup null application-context access in locale setup. Installs a crash guard before locale initialization; Java/Kotlin uncaught exceptions save device/version details and stack traces locally, then chain to Android’s handler. On next launch, a Chinese/English dialog offers Copy, Share and Dismiss/delete. Initialization errors use an in-app fallback screen. Initial SQLite/native loading and model verification run on IO; metrics file/probe failures no longer prevent startup. Added crash-report formatting, UTF-8 write/overwrite and handler-chain/disk-failure unit coverage. Signed with the same release certificate as 1.0.1. Static triage and build checks passed; the reported phone failure has not been reproduced on a device. Native signals/ANRs and installation failures do not produce Java crash reports. See docs/CRASHFIX-1.0.2.md for evidence and device follow-up.

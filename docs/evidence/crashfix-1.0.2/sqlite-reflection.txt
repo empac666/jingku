@@ -1,0 +1,12 @@
+Compiled from "BundledSQLite.kt"
+public final class androidx.sqlite.driver.bundled.BundledSQLite {
+  public static final int SQLITE_OPEN_READONLY = 1;
+  public static final int SQLITE_OPEN_READWRITE = 2;
+  public static final int SQLITE_OPEN_CREATE = 4;
+  public static final int SQLITE_OPEN_URI = 64;
+  public static final int SQLITE_OPEN_MEMORY = 128;
+  public static final int SQLITE_OPEN_NOMUTEX = 32768;
+  public static final int SQLITE_OPEN_FULLMUTEX = 65536;
+  public static final int SQLITE_OPEN_NOFOLLOW = 16777216;
+  public static final int SQLITE_OPEN_EXRESCODE = 33554432;
+}

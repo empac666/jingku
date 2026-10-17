@@ -119,8 +119,8 @@ class MetricsLogger(private val appContext: Context) {
         csvFile = File(extDir, "broll_metrics.csv")
         val intDir = File(appContext.filesDir, "logs").apply { mkdirs() }
         csvMirror = File(intDir, "broll_metrics.csv")
-        ensureHeader(csvFile)
-        ensureHeader(csvMirror)
+        runCatching { ensureHeader(csvFile) }
+        runCatching { ensureHeader(csvMirror) }
     }
 
     private fun ensureHeader(file: File) {
@@ -232,7 +232,7 @@ class MetricsLogger(private val appContext: Context) {
         overrideThermal: Int?,
         overridePss: Int?,
     ): String {
-        val snap = if (useProbe) probe.snapshot() else null
+        val snap = if (useProbe) runCatching { probe.snapshot() }.getOrNull() else null
         val pct = snap?.batteryPct
         val charge = snap?.batteryChargeUah
         val baselinePct = batteryBaselinePct
@@ -272,8 +272,8 @@ class MetricsLogger(private val appContext: Context) {
             embedderMode,
             detail,
         ).joinToString(",") { csvEscape(it) }
-        csvFile.appendText(row + "\n")
-        csvMirror.appendText(row + "\n")
+        runCatching { csvFile.appendText(row + "\n") }
+        runCatching { csvMirror.appendText(row + "\n") }
         val tempStr = if (temp.isNaN()) "" else String.format(Locale.US, "%.1f", temp)
         return "$ts $event/$stage ${elapsedMs}ms mode=$embedderMode pss=${pss ?: ""}KB bat=${pct ?: ""}% dµAh=${deltaCharge ?: ""} temp=$tempStr thermal=$thermalName $detail"
     }

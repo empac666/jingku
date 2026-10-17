@@ -12,12 +12,12 @@ object LocaleStore {
     const val LANG_EN = "en"
 
     fun getLanguage(context: Context): String {
-        val prefs = context.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val prefs = (context.applicationContext ?: context).getSharedPreferences(PREFS, Context.MODE_PRIVATE)
         return prefs.getString(KEY_LANG, LANG_ZH) ?: LANG_ZH
     }
 
     fun setLanguage(context: Context, lang: String) {
-        context.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        (context.applicationContext ?: context).getSharedPreferences(PREFS, Context.MODE_PRIVATE)
             .edit()
             .putString(KEY_LANG, lang)
             .apply()

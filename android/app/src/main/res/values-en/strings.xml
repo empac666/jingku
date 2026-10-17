@@ -66,4 +66,11 @@
 EmbeddingGemma 2 · Google DeepMind
 Long press the title for model terms and open source licenses</string>
     <string name="segment_start_unaligned">Segment start (unaligned)</string>
+    <string name="startup_failed">Startup failed. Copy or share the details below to help diagnose the problem.</string>
+    <string name="startup_error_title">Startup error</string>
+    <string name="crash_report_title">Previous crash report</string>
+    <string name="crash_copy">Copy</string>
+    <string name="crash_share">Share</string>
+    <string name="crash_dismiss">Dismiss and delete</string>
+    <string name="crash_share_unavailable">No app available to share this report</string>
 </resources>

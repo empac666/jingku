@@ -66,4 +66,11 @@
 EmbeddingGemma 2 · Google DeepMind
 长按标题查看模型条款与开源许可</string>
     <string name="segment_start_unaligned">段起点（未对齐）</string>
+    <string name="startup_failed">启动失败，请复制或分享以下信息以帮助排查。</string>
+    <string name="startup_error_title">启动错误</string>
+    <string name="crash_report_title">上次崩溃报告</string>
+    <string name="crash_copy">复制</string>
+    <string name="crash_share">分享</string>
+    <string name="crash_dismiss">关闭并删除</string>
+    <string name="crash_share_unavailable">没有可用的分享应用</string>
 </resources>

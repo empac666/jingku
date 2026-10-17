@@ -1,0 +1,20 @@
+     1	package com.broll.poc
+     2
+     3	import android.app.Application
+     4	import android.content.Context
+     5	import kotlinx.coroutines.CoroutineScope
+     6	import kotlinx.coroutines.Dispatchers
+     7	import kotlinx.coroutines.SupervisorJob
+     8
+     9	class BrollApplication : Application() {
+    10	    val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
+    11
+    12	    override fun attachBaseContext(base: Context) {
+    13	        super.attachBaseContext(LocaleStore.wrap(base))
+    14	    }
+    15
+    16	    override fun onCreate() {
+    17	        super.onCreate()
+    18	        EngineHolder.init(this)
+    19	    }
+    20	}

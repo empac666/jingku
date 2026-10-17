@@ -1,0 +1,125 @@
+{
+  "version": "1.0.2",
+  "version_code": 3,
+  "sha256": "34ce1db282bc247ff6d60b2ef7a7d1544ebbf2111283bdf41cfad2ca6aeb9c95",
+  "certificate_sha256": "74e523f6f442d7983a3bff59855ae7258a1535214a59167b02e5b5a0ae6a5d11",
+  "certificate_matches_1_0_1": true,
+  "v2": true,
+  "v3": true,
+  "elf_and_zip_16kb": true,
+  "native_libraries": [
+    {
+      "path": "lib/arm64-v8a/liblitertlm_jni.so",
+      "sha256": "4a94a3f955ad7c58cbcdfc5cb4ff566187bb9e8c5bc2c4056b4e226646c7e8fd",
+      "unchanged_from_1_0_1": true,
+      "load_alignment_bytes": [
+        16384,
+        16384,
+        16384
+      ],
+      "needed": [
+        "libandroid.so",
+        "libz.so",
+        "libGLESv2.so",
+        "libEGL.so",
+        "libGLESv3.so",
+        "liblog.so",
+        "libdl.so",
+        "libm.so",
+        "libc.so"
+      ]
+    },
+    {
+      "path": "lib/arm64-v8a/libonnxruntime.so",
+      "sha256": "dc5e4c172b1be9e530c6a62ad8f1be3e0a911cabdee6195abf28dab72477e194",
+      "unchanged_from_1_0_1": true,
+      "load_alignment_bytes": [
+        16384,
+        16384,
+        16384,
+        16384
+      ],
+      "needed": [
+        "libdl.so",
+        "liblog.so",
+        "libm.so",
+        "libc.so"
+      ]
+    },
+    {
+      "path": "lib/arm64-v8a/libsherpa-onnx-c-api.so",
+      "sha256": "638824ef6e150dfc53b44e0b06bf16a6ddeb2e0ac144c49dd09d5319486fc0dc",
+      "unchanged_from_1_0_1": true,
+      "load_alignment_bytes": [
+        16384,
+        16384,
+        16384
+      ],
+      "needed": [
+        "libandroid.so",
+        "liblog.so",
+        "libonnxruntime.so",
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ]
+    },
+    {
+      "path": "lib/arm64-v8a/libsherpa-onnx-cxx-api.so",
+      "sha256": "4a757e3c12d45b175be0026badc4bfc8ef5bf043471187428fa056f4610770a3",
+      "unchanged_from_1_0_1": true,
+      "load_alignment_bytes": [
+        16384,
+        16384,
+        16384
+      ],
+      "needed": [
+        "libsherpa-onnx-c-api.so",
+        "libandroid.so",
+        "liblog.so",
+        "libonnxruntime.so",
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ]
+    },
+    {
+      "path": "lib/arm64-v8a/libsherpa-onnx-jni.so",
+      "sha256": "a1e2989ffcd7cfa4a6b041698a43d33f154f90a72ba29b294bd2ed418e88ab22",
+      "unchanged_from_1_0_1": true,
+      "load_alignment_bytes": [
+        16384,
+        16384,
+        16384
+      ],
+      "needed": [
+        "libandroid.so",
+        "liblog.so",
+        "libonnxruntime.so",
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ]
+    },
+    {
+      "path": "lib/arm64-v8a/libsqliteJni.so",
+      "sha256": "9d3ad85cca0b7b02e0fe31beec3f17c86cccdebf62e1d1c47ac46743f4967a99",
+      "unchanged_from_1_0_1": true,
+      "load_alignment_bytes": [
+        16384,
+        16384,
+        16384,
+        16384
+      ],
+      "needed": [
+        "libm.so",
+        "libandroid.so",
+        "liblog.so",
+        "libdl.so",
+        "libc.so"
+      ]
+    }
+  ],
+  "physical_device_tested": false,
+  "runtime_test": "unavailable: x86_64 host, no installed emulator/image, no adb device"
+}

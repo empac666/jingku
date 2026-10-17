@@ -1,0 +1,6 @@
+{
+  "host": "x86_64",
+  "emulator_binary_exists": false,
+  "system_images": [],
+  "execution": "static triage; no Android device attached"
+}

@@ -98,11 +98,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun attachBaseContext(newBase: Context) {
-        super.attachBaseContext(LocaleStore.wrap(newBase))
+        super.attachBaseContext(runCatching { LocaleStore.wrap(newBase) }.getOrDefault(newBase))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        try {
+            (application as BrollApplication).startupFailure?.let { throw it }
+            initializeUi(savedInstanceState)
+        } catch (error: Throwable) {
+            showStartupFailure(error)
+        }
+        showPreviousCrash()
+    }
+
+    private fun initializeUi(savedInstanceState: Bundle?) {
         setContentView(R.layout.activity_main)
 
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
@@ -120,7 +130,6 @@ class MainActivity : AppCompatActivity() {
         progressAsr = findViewById(R.id.progressAsr)
         progressIndex = findViewById(R.id.progressIndex)
 
-        openIndexDatabaseOrPrompt()
         logger = MetricsLogger(this)
         EngineHolder.bindMetrics(logger)
         store = ModelStore(this)
@@ -167,37 +176,79 @@ class MainActivity : AppCompatActivity() {
 
         refreshModelStatus()
         refreshImportSummary()
-        val index = db
-        if (index != null) {
-            logger.log(
-                event = "app",
-                stage = "start",
-                detail = "rows=${index.count()} dialogue=${index.countDialogue()}",
-            )
-            setStatus(getString(R.string.status_dialogue_count, index.countDialogue()))
-        } else {
-            logger.log(event = "app", stage = "start", detail = "index_db_unavailable")
-            setStatus(getString(R.string.status_db_unavailable), error = true)
+        scope.launch {
+            var pending: IndexDatabase? = null
+            try {
+                val (opened, failure) = withContext(Dispatchers.IO) {
+                    IndexDatabase.tryOpen(applicationContext).also { pending = it.first }
+                }
+                db = opened
+                pending = null
+                if (failure != null) showIndexRebuildDialog(failure.message)
+                val count = withContext(Dispatchers.IO) { opened?.countDialogue() }
+                setStatus(if (count != null) getString(R.string.status_dialogue_count, count.toInt())
+                    else getString(R.string.status_db_unavailable), count == null)
+                logger.log(event = "app", stage = "start", detail = "dialogue=$count")
+            } catch (error: Throwable) {
+                runCatching { pending?.close() }
+                if (error is CancellationException) throw error
+                showStartupFailure(error)
+            }
         }
         updateLanguageButtonLabel()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        outState.putStringArrayList("import_uris", ArrayList(importQueue.map { it.first.toString() }))
-        outState.putStringArrayList("import_names", ArrayList(importQueue.map { it.second }))
-        outState.putString("query", editQuery.text?.toString())
+        if (::editQuery.isInitialized) {
+            outState.putStringArrayList("import_uris", ArrayList(importQueue.map { it.first.toString() }))
+            outState.putStringArrayList("import_names", ArrayList(importQueue.map { it.second }))
+            outState.putString("query", editQuery.text?.toString())
+        }
         super.onSaveInstanceState(outState)
     }
 
     override fun onDestroy() {
         IndexTaskCallbacks.detach(this)
-        videoView.stopPlayback()
+        if (::videoView.isInitialized) videoView.stopPlayback()
         scope.cancel()
         thumbJobs.values.forEach { it.cancel() }
         thumbJobs.clear()
         work?.cancel()
-        db?.close()
+        runCatching { db?.close() }
         super.onDestroy()
+    }
+
+    private fun showStartupFailure(error: Throwable) {
+        IndexTaskCallbacks.detach(this)
+        scope.cancel()
+        val trace = CrashGuard.describe(error)
+        val message = getString(R.string.startup_failed) + "\n\n" + trace
+        val content = android.widget.TextView(this).apply { text = message; setPadding(24, 24, 24, 24) }
+        setContentView(android.widget.ScrollView(this).apply { addView(content) })
+        showReport(getString(R.string.startup_error_title), message)
+    }
+
+    private fun showPreviousCrash() {
+        val file = java.io.File(filesDir, "crash/last_crash.txt")
+        val trace = runCatching { if (file.isFile) file.readText() else null }.getOrNull() ?: return
+        showReport(getString(R.string.crash_report_title), trace) { file.delete() }
+    }
+
+    private fun showReport(title: String, trace: String, dismiss: (() -> Unit)? = null) {
+        android.app.AlertDialog.Builder(this)
+            .setTitle(title).setMessage(trace).setCancelable(false)
+            .setPositiveButton(R.string.crash_copy) { _, _ ->
+                val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
+                clipboard.setPrimaryClip(android.content.ClipData.newPlainText(title, trace))
+            }
+            .setNeutralButton(R.string.crash_share) { _, _ ->
+                runCatching {
+                    startActivity(android.content.Intent.createChooser(android.content.Intent(android.content.Intent.ACTION_SEND)
+                        .setType("text/plain").putExtra(android.content.Intent.EXTRA_TEXT, trace), title))
+                }.onFailure { toast(getString(R.string.crash_share_unavailable)) }
+            }
+            .setNegativeButton(R.string.crash_dismiss) { _, _ -> dismiss?.invoke() }
+            .show()
     }
 
     private fun toggleLanguage() {
@@ -553,19 +604,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun refreshModelStatus() {
-        val embedReady = store.locate() != null
-        textEmbedStatus.text = "${getString(R.string.model_embed)}: " +
-            if (embedReady) getString(R.string.model_ready) else getString(R.string.model_missing)
-        val asrReady = asrStore.isSenseVoiceReady()
-        val vadReady = asrStore.isVadReady()
-        textAsrStatus.text = buildString {
-            append(getString(R.string.model_asr))
-            append(": ")
-            append(if (asrReady) getString(R.string.model_ready) else getString(R.string.model_missing))
-            append(" · ")
-            append(getString(R.string.model_vad))
-            append(": ")
-            append(if (vadReady) getString(R.string.model_ready) else getString(R.string.model_missing))
+        scope.launch {
+            try {
+                val (embedReady, asrReady, vadReady) = withContext(Dispatchers.IO) {
+                    Triple(store.locate() != null, asrStore.isSenseVoiceReady(), asrStore.isVadReady())
+                }
+                textEmbedStatus.text = "${getString(R.string.model_embed)}: " +
+                    if (embedReady) getString(R.string.model_ready) else getString(R.string.model_missing)
+                textAsrStatus.text = buildString {
+                    append(getString(R.string.model_asr))
+                    append(": ")
+                    append(if (asrReady) getString(R.string.model_ready) else getString(R.string.model_missing))
+                    append(" · ")
+                    append(getString(R.string.model_vad))
+                    append(": ")
+                    append(if (vadReady) getString(R.string.model_ready) else getString(R.string.model_missing))
+                }
+            } catch (error: Throwable) {
+                if (error is CancellationException) throw error
+                showStartupFailure(error)
+            }
         }
     }
 

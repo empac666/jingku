@@ -1,0 +1,22 @@
+Compiled from "BundledSQLiteDriver.jvmAndAndroid.kt"
+final class androidx.sqlite.driver.bundled.BundledSQLiteDriver$NativeLibraryObject {
+  public static final androidx.sqlite.driver.bundled.BundledSQLiteDriver$NativeLibraryObject INSTANCE;
+
+  private androidx.sqlite.driver.bundled.BundledSQLiteDriver$NativeLibraryObject();
+    Code:
+       0: aload_0
+       1: invokespecial #8                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  static {};
+    Code:
+       0: new           #2                  // class androidx/sqlite/driver/bundled/BundledSQLiteDriver$NativeLibraryObject
+       3: dup
+       4: invokespecial #12                 // Method "<init>":()V
+       7: putstatic     #15                 // Field INSTANCE:Landroidx/sqlite/driver/bundled/BundledSQLiteDriver$NativeLibraryObject;
+      10: nop
+      11: getstatic     #20                 // Field androidx/sqlite/driver/bundled/NativeLibraryLoader.INSTANCE:Landroidx/sqlite/driver/bundled/NativeLibraryLoader;
+      14: ldc           #22                 // String sqliteJni
+      16: invokevirtual #26                 // Method androidx/sqlite/driver/bundled/NativeLibraryLoader.loadLibrary:(Ljava/lang/String;)V
+      19: return
+}

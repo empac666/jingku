@@ -3,7 +3,7 @@
   "files": [
     {
       "path": "android/app/build.gradle.kts",
-      "sha256": "07ea2a24131e04d2ea7df8b119f534c8d5b102930836afd328f9808426cc3cbc"
+      "sha256": "22656d199ab40ae6d06e125aebacbe7a67ecf99580266b8ecdf4dc952bf0b1fb"
     },
     {
       "path": "android/app/proguard-rules.pro",
@@ -71,7 +71,15 @@
     },
     {
       "path": "android/app/src/main/java/com/broll/poc/BrollApplication.kt",
-      "sha256": "c26e64bd30c3ef1fa455536a67718122369c640d7157da5124c809fe7dcb9b54"
+      "sha256": "9895d61eebcaabf89b05fb15848cddf32e5946decccf7a2628ef0750c2098d70"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/CrashGuard.kt",
+      "sha256": "2c6e0c39c642cca0a0988900bd97c8c37f2bbe686c2dfb94cedf3b27c51949cc"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/CrashReport.kt",
+      "sha256": "ebe9eeee5970a5e6ad5d046e5c0d401841a8d530643eed3db6e902270c8e1b37"
     },
     {
       "path": "android/app/src/main/java/com/broll/poc/EngineHolder.kt",
@@ -87,11 +95,11 @@
     },
     {
       "path": "android/app/src/main/java/com/broll/poc/LocaleStore.kt",
-      "sha256": "ca52f7c8cb5f6c7e48d08dc57d749605e93a5d9bb7d3c1d6a270b28d00659712"
+      "sha256": "160d613e24402533ec990746bcf7376753bdb866b05091194badc61ef0eae87b"
     },
     {
       "path": "android/app/src/main/java/com/broll/poc/MainActivity.kt",
-      "sha256": "276962094d7f2a44ad175da1b83fe3dc7a34d2fb9bf369c9a8687119c52da22c"
+      "sha256": "59dee8cbbb6e22fd3f8b804ab93e68030b4b30c791d1cdb178549d557c345263"
     },
     {
       "path": "android/app/src/main/java/com/broll/poc/asr/SherpaTranscriber.kt",
@@ -143,7 +151,7 @@
     },
     {
       "path": "android/app/src/main/java/com/broll/poc/metrics/MetricsLogger.kt",
-      "sha256": "7bb9e230d0590ee1bb7d0b2236f641028ced30c10f85d51893fc7260d37b89e5"
+      "sha256": "e2c7554c7d9c40cdd9e8494d13b7c367e347cc4001014ea5abbba1bfbebcdcc0"
     },
     {
       "path": "android/app/src/main/java/com/broll/poc/model/AsrModelStore.kt",
@@ -207,7 +215,7 @@
     },
     {
       "path": "android/app/src/main/res/values/strings.xml",
-      "sha256": "05c7dc497af8ffb74e1768156590f9c268e6f1678703045724396628f38ad507"
+      "sha256": "0a59b35107a27ba31f64162fadab9e10f0cf80e8ea597eee33661aa7d7dc679f"
     },
     {
       "path": "android/app/src/main/res/values/themes.xml",
@@ -215,7 +223,7 @@
     },
     {
       "path": "android/app/src/main/res/values-en/strings.xml",
-      "sha256": "3b78f08076a37f13743ba193b7206cd0fe31bcd4ef04ab489448c5b4ab1df53f"
+      "sha256": "41e7e1e26816ab84551c8137c127a48a9a354e5869062f7c63bea1df23511a92"
     },
     {
       "path": "android/app/src/main/res/values-night/colors.xml",
@@ -224,6 +232,10 @@
     {
       "path": "android/app/src/main/res/values-night/themes.xml",
       "sha256": "07b9f916846fc4f331b785bc016e2ffd36dbfd1d7733d69a49fa5d4d469f45a4"
+    },
+    {
+      "path": "android/app/src/test/java/com/broll/poc/CrashReportTest.kt",
+      "sha256": "ba5f633be09060a6f277a0b74abc6c89081d33e07056f57fb994ddc6cc0f4e84"
     },
     {
       "path": "android/app/src/test/java/com/broll/poc/data/BundledDbTransactionTest.kt",

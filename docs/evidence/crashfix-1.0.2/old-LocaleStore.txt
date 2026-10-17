@@ -1,0 +1,36 @@
+     1	package com.broll.poc
+     2
+     3	import android.content.Context
+     4	import android.content.res.Configuration
+     5	import java.util.Locale
+     6
+     7	object LocaleStore {
+     8	    private const val PREFS = "jingku_prefs"
+     9	    private const val KEY_LANG = "app_lang"
+    10
+    11	    const val LANG_ZH = "zh"
+    12	    const val LANG_EN = "en"
+    13
+    14	    fun getLanguage(context: Context): String {
+    15	        val prefs = context.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+    16	        return prefs.getString(KEY_LANG, LANG_ZH) ?: LANG_ZH
+    17	    }
+    18
+    19	    fun setLanguage(context: Context, lang: String) {
+    20	        context.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+    21	            .edit()
+    22	            .putString(KEY_LANG, lang)
+    23	            .apply()
+    24	    }
+    25
+    26	    fun wrap(context: Context): Context {
+    27	        val lang = getLanguage(context)
+    28	        val locale = when (lang) {
+    29	            LANG_EN -> Locale.ENGLISH
+    30	            else -> Locale.SIMPLIFIED_CHINESE
+    31	        }
+    32	        val config = Configuration(context.resources.configuration)
+    33	        config.setLocale(locale)
+    34	        return context.createConfigurationContext(config)
+    35	    }
+    36	}
