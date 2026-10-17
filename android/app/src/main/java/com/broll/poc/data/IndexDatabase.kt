@@ -149,7 +149,7 @@ class IndexDatabase private constructor(
               end_sec REAL NOT NULL,
               dim INTEGER NOT NULL,
               vector BLOB NOT NULL,
-              vector256 BLOB NOT NULL,
+              vector256 BLOB NOT NULL DEFAULT X'',
               label TEXT NOT NULL,
               fts_content TEXT NOT NULL DEFAULT '',
               timestamp_note TEXT NOT NULL DEFAULT '',
@@ -277,7 +277,6 @@ class IndexDatabase private constructor(
         startSec: Double,
         endSec: Double,
         full: FloatArray,
-        truncated: FloatArray,
         label: String,
         embedderMode: String,
         timestampNote: String = "",
@@ -295,7 +294,8 @@ class IndexDatabase private constructor(
             put("end_sec", endSec)
             put("dim", full.size)
             put("vector", floatsToBytes(full))
-            put("vector256", floatsToBytes(truncated))
+            // Retain an empty legacy column for generation-6 compatibility.
+            put("vector256", byteArrayOf())
             put("label", label)
             put("fts_content", ftsContent)
             put("timestamp_note", timestampNote)
@@ -362,7 +362,7 @@ class IndexDatabase private constructor(
         val sql = if (videoUri == null) {
             "SELECT COUNT(*) FROM segments WHERE modality = 'dialogue' ORDER BY id ASC"
         } else {
-            "SELECT COUNT(*) FROM segments WHERE modality = 'dialogue' ORDER BY id ASC AND video_uri = ?"
+            "SELECT COUNT(*) FROM segments WHERE modality = 'dialogue' AND video_uri = ? ORDER BY id ASC"
         }
         val args = if (videoUri == null) null else arrayOf<String?>(videoUri)
         db.query(sql, args).use { c ->

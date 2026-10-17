@@ -19,7 +19,7 @@ Use JDK 17+, Android SDK 35, Build Tools 35.0.0:
 ```sh
 cd android
 export ANDROID_HOME=/path/to/android-sdk
-./gradlew testReleaseUnitTest assembleRelease
+./gradlew testReleaseUnitTest lintRelease assembleRelease
 ```
 
 Gradle obtains dependencies from Google Maven, Maven Central and JitPack. Release output is unsigned by default; align/sign with Android Build Tools and run `apksigner verify`. Keep signing material outside source control. The source repo contains no APK, model weights, videos, keystores or passwords.

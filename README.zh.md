@@ -27,7 +27,7 @@ Android 8.0+（API 26），**仅 arm64-v8a**。推荐先在空闲、充电状态
 ```sh
 cd android
 export ANDROID_HOME=/path/to/android-sdk
-./gradlew testReleaseUnitTest assembleRelease
+./gradlew testReleaseUnitTest lintRelease assembleRelease
 ```
 
 默认生成未签名 release APK。私钥应在源码树外保管；用 Android Build Tools 的 `zipalign`、`apksigner sign` 和 `apksigner verify` 本地签名验证。请勿把签名文件或密码提交到 Git。

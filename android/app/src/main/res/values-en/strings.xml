@@ -30,7 +30,7 @@
     <string name="btn_cancel">Cancel</string>
     <string name="index_stage_decode">Decoding audio…</string>
     <string name="index_stage_transcribe">SenseVoice transcribing…</string>
-    <string name="index_stage_embed">Embedding %1$d / %2$d</string>
+    <string name="index_stage_embed">Embedding %1$s / %2$s</string>
     <string name="index_progress_batch">Video %1$d / %2$d · %3$s</string>
     <string name="index_engine_init">Initializing embedder…</string>
     <string name="index_notification_start">Indexing…</string>
@@ -65,4 +65,5 @@
     <string name="model_attribution">SenseVoiceSmall · FunASR / FunAudioLLM (Alibaba)
 EmbeddingGemma 2 · Google DeepMind
 Long press the title for model terms and open source licenses</string>
+    <string name="segment_start_unaligned">Segment start (unaligned)</string>
 </resources>

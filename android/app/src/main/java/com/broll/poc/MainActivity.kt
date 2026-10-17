@@ -540,7 +540,8 @@ class MainActivity : AppCompatActivity() {
                 player.seekTo(pendingSeekMs, android.media.MediaPlayer.SEEK_CLOSEST)
             }
         }
-        val note = seg.seekAlignmentNote(lastSearchQuery)
+        val note = if (seg.seekAlignmentNote(lastSearchQuery).isBlank()) ""
+            else getString(R.string.segment_start_unaligned)
         setStatus(getString(R.string.play_seek, seekSec) + if (note.isBlank()) "" else " · $note")
         videoView.post { videoView.parent.requestChildFocus(videoView, videoView) }
     }

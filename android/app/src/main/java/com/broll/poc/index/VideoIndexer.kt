@@ -9,7 +9,6 @@ import com.broll.poc.IndexTaskCallbacks
 import com.broll.poc.asr.SherpaTranscriber
 import com.broll.poc.data.IndexDatabase
 import com.broll.poc.embed.Embedder
-import com.broll.poc.embed.truncateNormalize
 import com.broll.poc.metrics.DeviceProbe
 import com.broll.poc.metrics.MetricsLogger
 import com.broll.poc.metrics.MinuteMetricsAccumulator
@@ -143,7 +142,6 @@ class VideoIndexer(
                     val t0 = System.nanoTime()
                     val prefixed = AppConfig.INDEX_PREFIX + seg.text
                     val vector = embedder.embedText(prefixed)
-                    val trunc = truncateNormalize(vector, AppConfig.TRUNC_DIM)
                     val label = seg.text
                     db.insert(
                         videoUri = uri.toString(),
@@ -152,7 +150,6 @@ class VideoIndexer(
                         startSec = seg.startSec,
                         endSec = seg.endSec,
                         full = vector,
-                        truncated = trunc,
                         label = label,
                         embedderMode = mode,
                         timestampNote = seg.timestampNote,
@@ -162,7 +159,7 @@ class VideoIndexer(
                     dialogueCount++
                     jobContext.ensureActive()
                     report(IndexStage.EMBED,
-                        context.getString(com.broll.poc.R.string.index_stage_embed, idx + 1, totalSeg),
+                        context.getString(com.broll.poc.R.string.index_stage_embed, (idx + 1).toString(), totalSeg.toString()),
                         embedCurrent = idx + 1, embedTotal = totalSeg)
                     val elapsed = (System.nanoTime() - t0) / 1_000_000
                     touchMinute(seg.startSec, elapsed)

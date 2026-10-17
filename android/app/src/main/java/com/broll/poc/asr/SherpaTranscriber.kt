@@ -44,7 +44,7 @@ class SherpaTranscriber(
 
     fun ensureLoaded() {
         if (!store.isSenseVoiceReady()) {
-            error("SenseVoice 模型未就绪，请下载或从 /data/local/tmp 导入")
+            error("SenseVoice 模型未就绪或 SHA-256 校验失败，请下载")
         }
         if (recognizer == null) {
             val modelConfig = OfflineModelConfig(

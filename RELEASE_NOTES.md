@@ -1,4 +1,4 @@
-# Jingku / 镜库 1.0.0 — local release candidate
+# Jingku / 镜库 1.0.1 — local release candidate
 
 中文 pitch：用一句话，找回本地视频里说过的那一刻。
 
@@ -14,3 +14,5 @@ English pitch: Find the moment someone said it—in your local videos, with a se
 This is a locally built release candidate, not a published store release. See README for metric denominators, offline/Android protocol differences and license limitations. UI preview screenshots, when provided, use explicitly marked demo data and are not inference evidence. Real physical-device indexing/search/playback, thermal/memory checks and model-distribution review remain release gates. No remote repository has been created or pushed.
 
 Build note: release shrinking/obfuscation is disabled. The inherited Kotlin/R8 combination emitted metadata warnings and an actual Metaspace OOM; this candidate uses D8 with JNI/runtime names preserved. `testReleaseUnitTest` includes the full-768 retrieval regression in addition to the inherited FIR/resampling, seek, FTS-schema and SQLite transaction tests. Artifact validation is recorded in `docs/BUILD_VALIDATION.json`.
+
+1.0.1 (versionCode 2): fixed EmbeddingGemma to HF commit 24d962e906c7d332c6428e71c9676855024569e2, retained the explicit GitHub asr-models release tag and pinned SHA-256 for the ASR archive, extracted ONNX/tokens and VAD. Existing files and downloads are verified; corrupt files are deleted and a corrupt download is retried once. Local tmp import/fallback is debug-only. Release lint is enabled. Fixed per-video dialogue SQL counting with regression coverage, localized the seek fallback note, and stopped computing/storing unused 256-D vectors (legacy column remains empty). Corrected labelled HTML renders with attribution and optional VAD.

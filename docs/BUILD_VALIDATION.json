@@ -1,7 +1,12 @@
 {
+  "lint": {
+    "Error": 0,
+    "Fatal": 0,
+    "Warning": 34
+  },
   "bytes": 62141734,
   "mib": 59.26,
-  "sha256": "f3693c454fef37bada9f2a54af780eeebbd6e361894221b904753c94b3eb3df6",
+  "sha256": "a4faa7d45571554d7d726105baafd896887a3cc29324176502ab5bb3cf9d0c3c",
   "abis": [
     "arm64-v8a"
   ],
@@ -38,7 +43,7 @@
     }
   ],
   "unit_tests": {
-    "tests": 21,
+    "tests": 24,
     "failures": 0,
     "errors": 0,
     "skipped": 0
@@ -46,6 +51,11 @@
   "apk_contains_model_weights": false,
   "apk_contains_signing_material": false,
   "apk_contains_stub_or_preview": false,
+  "version_name": "1.0.1",
+  "version_code": 2,
+  "release_lint_enabled": true,
+  "model_sha256_pinned": true,
+  "release_tmp_import_allowed": false,
   "minify_enabled": false,
   "screenshot_type": "labelled HTML high-fidelity renders; synthetic demo data; not Android or physical-device captures",
   "physical_device_tested": false,

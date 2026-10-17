@@ -28,6 +28,10 @@ class SemanticRetrievalTest {
             val ctor = IndexDatabase::class.java.getDeclaredConstructor(BundledDb::class.java)
             ctor.isAccessible = true
             val db = ctor.newInstance(raw)
+            assertEquals(4, db.countDialogue())
+            assertEquals(4, db.countDialogue("video://same"))
+            assertEquals(0, db.countDialogue("video://missing"))
+            assertEquals(0, db.countDialogue("video://same' OR 1=1 --"))
             val hits = db.searchSemantic768(q)
             assertEquals(listOf(2L, 3L, 4L), hits.map { it.id })
             assertTrue(runCatching { db.searchSemantic768(FloatArray(256)) }.isFailure)
