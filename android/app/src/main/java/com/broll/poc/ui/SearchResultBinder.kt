@@ -35,32 +35,30 @@ object SearchResultBinder {
         val lowConf = root.findViewById<TextView>(R.id.textLowConfidence)
 
         title.text = segment.videoName.ifBlank { segment.videoUri }
-        val highlightColor = ContextCompat.getColor(root.context, R.color.highlight_match)
-        dialogue.text = DialogueHighlighter.highlight(segment.label, query, highlightColor)
-        val scoreValue = segment.score.toDouble()
-        meta.text = root.context.getString(
-            R.string.result_meta_format,
-            timestamp(segment.startSec),
-            timestamp(segment.endSec),
-            scoreValue,
-        )
+        dialogue.text = DialogueHighlighter.highlight(segment.label, query,
+            ContextCompat.getColor(root.context, R.color.highlight_match),
+            ContextCompat.getColor(root.context, R.color.highlight_match_on))
+        val range = "${timestamp(segment.startSec)}–${timestamp(segment.endSec)}"
+        meta.text = " · $range"
+        root.findViewById<TextView>(R.id.textTimestamp).text = timestamp(segment.startSec)
         val low = segment.score < AppConfig.SEMANTIC_LOW_CONFIDENCE
         lowConf.visibility = if (low) View.VISIBLE else View.GONE
         lowConf.text = root.context.getString(R.string.low_confidence_hint)
-
-        thumbJobs[root]?.cancel()
+        (card.getChildAt(0) as ViewGroup).importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
+        card.contentDescription = listOf(segment.label, segment.videoName, range,
+            if (low) lowConf.text.toString() else "").filter { it.isNotBlank() }.joinToString(", ")
+        card.alpha = 1f
+        thumbJobs.remove(root)?.cancel()
+        thumb.tag = segment.videoUri
         thumb.setImageDrawable(null)
         thumbJobs[root] = scope.launch {
-            val bmp = VideoFrameThumb.load(root.context, segment.videoUri, segment.startSec)
-            if (bmp != null) {
-                thumb.post { thumb.setImageBitmap(bmp) }
-            }
+            val bmp = VideoFrameThumb.load(root.context, segment.videoUri, segment.startSec, 720)
+            if (bmp != null && thumb.tag == segment.videoUri) thumb.setImageBitmap(bmp)
         }
-
-        card.setOnClickListener { onPlay(segment) }
+        card.setOnClickListener { card.isFocusableInTouchMode = true; card.requestFocus(); onPlay(segment) }
     }
 
-    private fun timestamp(sec: Double): String {
+    fun timestamp(sec: Double): String {
         val seconds = sec.toLong().coerceAtLeast(0)
         return String.format(Locale.US, "%02d:%02d", seconds / 60, seconds % 60)
     }

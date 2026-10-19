@@ -1,0 +1,180 @@
+{
+  "interim": false,
+  "version": "1.0.3",
+  "version_code": 4,
+  "artifacts": [
+    {
+      "path": "out/jingku-1.0.3-arm64-v8a.apk",
+      "bytes": 786066801,
+      "sha256": "7a2db10294ed4ac22b3c6b690387b62d2529d2c9e661cb9f99a8c1683fcdf45a"
+    },
+    {
+      "path": "out/jingku-1.0.3.aab",
+      "bytes": 580466169,
+      "sha256": "c677642d64fd0fb0f51158de2ca775b9c7b4e7f2b0db49dc1b6886a90137708e"
+    }
+  ],
+  "certificate_sha256": "74e523f6f442d7983a3bff59855ae7258a1535214a59167b02e5b5a0ae6a5d11",
+  "v2": true,
+  "v3": true,
+  "non_debuggable": true,
+  "internet_permission": false,
+  "arm64_only": true,
+  "aab_certificate_matches": true,
+  "download_sizes": {
+    "total": {
+      "MIN": 579915871,
+      "MAX": 579915871
+    },
+    "base": {
+      "MIN": 27213705,
+      "MAX": 27213705
+    },
+    "models": {
+      "MIN": 579915871,
+      "MAX": 579915871
+    },
+    "asset_pack_incremental": {
+      "MIN": 552702166,
+      "MAX": 552702166
+    },
+    "note": "--modules=models includes its base dependency; asset_pack_incremental is total minus base for the single install-time pack.",
+    "signed_aab_sha256": "c677642d64fd0fb0f51158de2ca775b9c7b4e7f2b0db49dc1b6886a90137708e",
+    "installed_split_apks": [
+      {
+        "path": "asset-slices/models-master.apk",
+        "bytes": 724828760
+      },
+      {
+        "path": "splits/base-arm64_v8a.apk",
+        "bytes": 54838013
+      },
+      {
+        "path": "splits/base-en.apk",
+        "bytes": 49498
+      },
+      {
+        "path": "splits/base-master.apk",
+        "bytes": 14284603
+      },
+      {
+        "path": "splits/base-xxhdpi.apk",
+        "bytes": 57691
+      },
+      {
+        "path": "splits/base-zh.apk",
+        "bytes": 33114
+      }
+    ]
+  },
+  "models": [
+    {
+      "path": "assets/offline/embeddinggemma-2-740m.litertlm",
+      "bytes": 484622336,
+      "compressed_bytes": 484622336,
+      "zip_method": 0,
+      "sha256": "e7a8a2204b91e0f96e92960e84a09a89212e1633dcb7575a9bf3378b4df77f4c"
+    },
+    {
+      "path": "assets/offline/model.int8.onnx",
+      "bytes": 239233841,
+      "compressed_bytes": 239233841,
+      "zip_method": 0,
+      "sha256": "c71f0ce00bec95b07744e116345e33d8cbbe08cef896382cf907bf4b51a2cd51"
+    },
+    {
+      "path": "assets/offline/tokens.txt",
+      "bytes": 315894,
+      "compressed_bytes": 315894,
+      "zip_method": 0,
+      "sha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc"
+    },
+    {
+      "path": "assets/offline/silero_vad.onnx",
+      "bytes": 643854,
+      "compressed_bytes": 643854,
+      "zip_method": 0,
+      "sha256": "9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6"
+    }
+  ],
+  "native_libraries": [
+    {
+      "path": "lib/arm64-v8a/liblitertlm_jni.so",
+      "zip_offset": 729726976,
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "unchanged_from_1_0_2": true
+    },
+    {
+      "path": "lib/arm64-v8a/libonnxruntime.so",
+      "zip_offset": 751894528,
+      "load_alignments": [
+        16384,
+        16384,
+        16384,
+        16384
+      ],
+      "unchanged_from_1_0_2": true
+    },
+    {
+      "path": "lib/arm64-v8a/libsherpa-onnx-c-api.so",
+      "zip_offset": 773586944,
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "unchanged_from_1_0_2": true
+    },
+    {
+      "path": "lib/arm64-v8a/libsherpa-onnx-cxx-api.so",
+      "zip_offset": 778043392,
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "unchanged_from_1_0_2": true
+    },
+    {
+      "path": "lib/arm64-v8a/libsherpa-onnx-jni.so",
+      "zip_offset": 778485760,
+      "load_alignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "unchanged_from_1_0_2": true
+    },
+    {
+      "path": "lib/arm64-v8a/libsqliteJni.so",
+      "zip_offset": 783253504,
+      "load_alignments": [
+        16384,
+        16384,
+        16384,
+        16384
+      ],
+      "unchanged_from_1_0_2": true
+    }
+  ],
+  "unit_tests": {
+    "tests": 37,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "lint": {
+    "errors": 0,
+    "warnings": 74
+  },
+  "physical_device_tested": false,
+  "source_manifest_sha256": "b0988f597465188127dae52774a36576b663c8c2e4f5b1f7ecc3a8d73a05bf2a",
+  "dex_sha256": {
+    "classes.dex": "540a90fdbf5eb8b1140200fa772c7d6506345bab55396ac16d9e3dccb4aa35e5",
+    "classes2.dex": "4a9d6f72c1b70dff4dbf7849ed861bbd3f78a000751048ab83359b8febde21b6"
+  }
+}

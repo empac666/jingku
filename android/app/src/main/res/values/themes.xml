@@ -1,8 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.Jingku" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/seed_primary</item>
-        <item name="colorSecondary">@color/seed_secondary</item>
-        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnBackground">@color/on_surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="colorSurfaceVariant">@color/surface_container_high</item>
+        <item name="colorOnSurfaceVariant">@color/on_surface_variant</item>
+        <item name="colorOutline">@color/outline</item>
+        <item name="colorOutlineVariant">@color/outline_variant</item>
+        <item name="colorSurfaceInverse">@color/inverse_surface</item>
+        <item name="colorOnSurfaceInverse">@color/inverse_on_surface</item>
+        <item name="colorPrimaryInverse">@color/on_primary</item>
+        <item name="colorControlHighlight">@color/control_highlight</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="colorPrimaryContainer">@color/primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/on_primary_container</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@color/on_secondary</item>
+        <item name="colorSecondaryContainer">@color/secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/on_secondary_container</item>
+        <item name="colorTertiary">@color/tertiary</item>
+        <item name="colorOnTertiary">@color/on_tertiary</item>
+        <item name="colorTertiaryContainer">@color/tertiary_container</item>
+        <item name="colorOnTertiaryContainer">@color/on_tertiary_container</item>
+        <item name="colorError">@color/error</item>
+        <item name="colorOnError">@color/on_error</item>
+        <item name="colorErrorContainer">@color/error_container</item>
+        <item name="colorOnErrorContainer">@color/on_error_container</item>
+        <item name="colorSurfaceDim">@color/surface_dim</item>
+        <item name="colorSurfaceContainerLowest">@color/surface_container_lowest</item>
+        <item name="colorSurfaceContainerLow">@color/surface_container_low</item>
+        <item name="colorSurfaceContainer">@color/surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/surface_container_high</item>
+        <item name="colorSurfaceContainerHighest">@color/surface_container_highest</item>
+        <item name="colorSurfaceBright">@color/surface</item>
+        <item name="android:colorBackground">@color/surface</item>
+        <item name="android:windowBackground">@color/surface</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">@bool/light_system_bars</item>
+        <item name="elevationOverlayEnabled">false</item>
+        <item name="materialAlertDialogTheme">@style/Jingku.Dialog</item>
+        <item name="bottomSheetDialogTheme">@style/Jingku.SheetDialog</item>
+        <item name="materialButtonStyle">@style/Jingku.Button</item>
+        <item name="linearProgressIndicatorStyle">@style/Jingku.Progress</item>
     </style>
+    <style name="Jingku.Full" parent="ShapeAppearance.Material3.Corner.Full" />
+    <style name="Jingku.Large" parent="ShapeAppearance.Material3.Corner.Medium"><item name="cornerSize">16dp</item></style>
+    <style name="Jingku.Small" parent="ShapeAppearance.Material3.Corner.Small"><item name="cornerSize">8dp</item></style>
+    <style name="Jingku.None" parent="ShapeAppearance.Material3.Corner.ExtraSmall"><item name="cornerSize">0dp</item></style>
+    <style name="Jingku.Button" parent="Widget.Material3.Button"><item name="android:minHeight">48dp</item><item name="shapeAppearance">@style/Jingku.Full</item></style>
+    <style name="Jingku.TextButton" parent="Widget.Material3.Button.TextButton"><item name="android:minWidth">48dp</item><item name="android:minHeight">48dp</item></style>
+    <style name="Jingku.Icon" parent="Jingku.TextButton"><item name="android:padding">12dp</item><item name="iconPadding">0dp</item><item name="iconGravity">textStart</item><item name="iconSize">24dp</item><item name="iconTint">@color/on_surface_variant</item><item name="android:insetTop">0dp</item><item name="android:insetBottom">0dp</item></style>
+    <style name="Jingku.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog"><item name="colorSurface">@color/surface_container_highest</item><item name="alertDialogStyle">@style/Jingku.Alert</item><item name="materialAlertDialogBodyTextStyle">@style/Jingku.DialogBody</item></style>
+    <style name="Jingku.SheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog"><item name="bottomSheetStyle">@style/Jingku.Sheet</item></style>
+    <style name="Jingku.Sheet" parent="Widget.Material3.BottomSheet.Modal"><item name="backgroundTint">@color/surface_container_highest</item><item name="shapeAppearance">@style/Jingku.Large</item></style>
+    <style name="Jingku.Progress" parent="Widget.Material3.LinearProgressIndicator"><item name="indicatorColor">@color/primary</item><item name="trackColor">@color/surface_container_highest</item><item name="trackThickness">4dp</item><item name="indicatorTrackGapSize">0dp</item><item name="trackStopIndicatorSize">0dp</item></style>
+    <style name="Jingku.Alert" parent="MaterialAlertDialog.Material3"><item name="shapeAppearance">@style/Jingku.Large</item><item name="backgroundTint">@color/surface_container_highest</item></style>
+    <style name="Jingku.DialogBody" parent="MaterialAlertDialog.Material3.Body.Text"><item name="android:textColor">@color/on_surface</item></style>
 </resources>

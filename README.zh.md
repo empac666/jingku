@@ -4,7 +4,7 @@
 
 [English](README.md) · [许可核查](docs/LICENSING.md) · [发布说明](RELEASE_NOTES.md)
 
-镜库是一款 Android 视频台词语义检索原型：选择本地视频，SenseVoice 转写，EmbeddingGemma 2 建立向量索引，输入中文或英文描述，查看余弦 Top-3 并点按跳转播放。视频不上传。模型首次下载需要联网，准备完成后索引和搜索在设备本地运行。
+镜库是一款 Android 视频台词语义检索原型：选择本地视频，SenseVoice 转写，EmbeddingGemma 2 建立向量索引，输入中文或英文描述，查看余弦 Top-3 并点按跳转播放。视频不上传。模型随 APK/AAB 安装，准备、索引和搜索均在设备本地运行，无需联网。
 
 ## 功能
 
@@ -19,7 +19,7 @@
 Android 8.0+（API 26），**仅 arm64-v8a**。推荐先在空闲、充电状态准备模型和索引；空间与内存需求取决于视频和模型。未在真机完成验证。
 
 1. 安装签名 release APK（由项目发布者另行提供；源码仓库不存 APK）。
-2. 准备 SenseVoiceSmall、Silero VAD、EmbeddingGemma 2 模型；遵守各自条款，详见 [模型说明](docs/MODELS.md)。
+2. 等待自动准备离线模型（约需 530 MiB 可用空间）；遵守各自条款，详见 [模型说明](docs/MODELS.md)。
 3. 导入你有权使用的视频并开始索引；搜索描述，点按候选定位播放。取消会移除当前未完成视频的部分索引，已经完成的视频保留。
 
 构建需 JDK 17+、Android SDK 35、Build Tools 35.0.0。构建会从 Google Maven/Maven Central/JitPack 获取依赖。
@@ -27,10 +27,10 @@ Android 8.0+（API 26），**仅 arm64-v8a**。推荐先在空闲、充电状态
 ```sh
 cd android
 export ANDROID_HOME=/path/to/android-sdk
-./gradlew testReleaseUnitTest lintRelease assembleRelease
+./gradlew testReleaseUnitTest lintRelease bundleRelease
 ```
 
-默认生成未签名 release APK。私钥应在源码树外保管；用 Android Build Tools 的 `zipalign`、`apksigner sign` 和 `apksigner verify` 本地签名验证。请勿把签名文件或密码提交到 Git。
+构建前按 docs/MODELS.md 在 android/ 同级 models-cache/ 放置四个固定模型。默认生成未签名 AAB；签名后用 bundletool 生成含模型的 universal APK。私钥应在源码树外保管；用 Android Build Tools 的 `zipalign`、`apksigner sign` 和 `apksigner verify` 本地签名验证。请勿把签名文件或密码提交到 Git。
 
 ## 真实评估，及其边界
 
@@ -48,10 +48,12 @@ export ANDROID_HOME=/path/to/android-sdk
 
 原创应用源码 [MIT](LICENSE)。依赖/模型分别适用自己的许可；特别是 SenseVoiceSmall 权重采用自定义 FunASR 协议，不是 MIT，商用解释仍有上游待确认事项。详见 [LICENSING.md](docs/LICENSING.md)。权重、密钥、keystore、第三方视频均不在仓库。
 
-模型从 GitHub/Hugging Face 上游下载；服务器会看到模型下载网络请求。选中的视频、转写和向量留在应用目录，卸载会删除应用数据；视频原件仍由原提供者保管。应用已禁用 Android 自动备份；仍请按数据敏感程度管理设备与文件共享。只导入有权处理的内容。
+模型已随应用分发，准备无需联网；应用未声明 INTERNET 权限。选中的视频、转写和向量留在应用目录，卸载会删除应用数据；视频原件仍由原提供者保管。应用已禁用 Android 自动备份；仍请按数据敏感程度管理设备与文件共享。只导入有权处理的内容。
 
-## 界面示意
+## 真实 Android 布局渲染
 
-以下为标注演示数据的 HTML 高保真渲染，不是 Android／真机截图，也不是实际推理结果。
+56 张生产 XML 的 native-Skia 渲染，含中英文与深浅色。使用演示状态与抽象缩略图，不代表真机推理或播放验证。[来源与完整清单](screenshots/1.0.3/README.md)。
 
-[导入与索引 / Import](screenshots/01-import-index.png) · [Top-3](screenshots/02-search-results.png) · [播放 / Playback](screenshots/03-playback-seek.png) · [低置信 / Low confidence](screenshots/04-low-confidence.png)
+[Home](screenshots/1.0.3/home-empty-en-light.png) · [主页](screenshots/1.0.3/home-empty-zh-light.png) · [Results](screenshots/1.0.3/search-results-en-light.png) · [深色结果](screenshots/1.0.3/search-results-zh-dark.png) · [Progress](screenshots/1.0.3/indexing-progress-en-light.png)
+
+![Jingku results](screenshots/1.0.3/search-results-en-light.png)

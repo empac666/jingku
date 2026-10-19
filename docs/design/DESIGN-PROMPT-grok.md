@@ -1,0 +1,9 @@
+You are Grok, one of three collaborators (agy/Claude Opus, Grok, Codex) designing the Jingku 1.0.3 UI. Read /workspace/broll-poc/release/design/REFERENCES.md (Part A = agy's research, Part B = yours), the current layouts in /workspace/broll-poc/release/app/app/src/main/res and MainActivity.kt (read-only; do NOT read release/secrets; do NOT edit app source).
+Write /workspace/broll-poc/release/design/DESIGN.md v0: the single agreed design spec Codex will implement in Android XML Views + Material Components 1.12+ (Material 3). Must contain:
+1. Principles (≤8 bullets), with which reference product each came from.
+2. Decision table where Part A and Part B disagree (e.g. warm accent colour vs ink-only primary; skeleton shimmer; screen separation/navigation model; indexing as overlay vs library sheet) — state each option, the decision, and why. Mark each decision "proposed by Grok — pending agy/Codex".
+3. Tokens: colour roles light+dark hex (as themes.xml/colors.xml names), type scale (TextAppearance.Material3.* mapping), spacing (dimens names+values), shapes (ShapeAppearance overlays), motion durations/easing, icons.
+4. Screen-by-screen spec with ASCII wireframes + exact zh/en copy: Home empty; Home with library (stats + recent chips); Model preparing (first-launch extraction); Indexing progress; Searching (skeleton); Results (incl. low-confidence card); No results; Playback; Library/import; About/licenses; Crash-report dialog (keep from 1.0.2); Language toggle.
+5. Navigation/structure appropriate for a single-Activity Views app with low risk (no Compose). Keep all existing features: import (SAF), foreground indexing service, search, seek playback, low-confidence logic (threshold unchanged), language toggle, licences/attribution, CrashGuard dialog.
+6. Screenshot list for Robolectric/Roborazzi (state × light/dark × zh/en) and acceptance checklist for the cross-review.
+≤300 lines. Print a 5-line summary.

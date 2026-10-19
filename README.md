@@ -4,7 +4,7 @@ Find the moment someone said it—in your local videos, with a sentence.
 
 [简体中文](README.zh.md) · [License audit](docs/LICENSING.md) · [Release notes](RELEASE_NOTES.md)
 
-An Android dialogue-search prototype: import local videos, transcribe with SenseVoiceSmall, embed with EmbeddingGemma 2, and tap cosine Top-3 results to play at the matching timestamp. Chinese is the default; English and system light/dark themes are supported. No video upload. Model setup uses the network; indexing and retrieval run locally after setup.
+An Android dialogue-search prototype: import local videos, transcribe with SenseVoiceSmall, embed with EmbeddingGemma 2, and tap cosine Top-3 results to play at the matching timestamp. Chinese is the default; English and system light/dark themes are supported. No video upload. Models ship with the APK/AAB; preparation, indexing and retrieval run locally without network access.
 
 ## Features
 
@@ -12,17 +12,17 @@ Multi-video import, cancellable sequential indexing with per-video/overall progr
 
 ## Run and build
 
-**Android 8+ / API 26; arm64-v8a only. Not tested on a physical device.** Prepare the models through the app, import videos you have the right to process, index, and search. Cancellation removes the unfinished video's partial index and keeps previously completed videos. See [model downloads and terms](docs/MODELS.md).
+**Android 8+ / API 26; arm64-v8a only. Not tested on a physical device.** Wait for automatic offline model preparation, import videos you have the right to process, index, and search. Cancellation removes the unfinished video's partial index and keeps previously completed videos. See [bundled models and terms](docs/MODELS.md).
 
 Use JDK 17+, Android SDK 35, Build Tools 35.0.0:
 
 ```sh
 cd android
 export ANDROID_HOME=/path/to/android-sdk
-./gradlew testReleaseUnitTest lintRelease assembleRelease
+./gradlew testReleaseUnitTest lintRelease bundleRelease
 ```
 
-Gradle obtains dependencies from Google Maven, Maven Central and JitPack. Release output is unsigned by default; align/sign with Android Build Tools and run `apksigner verify`. Keep signing material outside source control. The source repo contains no APK, model weights, videos, keystores or passwords.
+Place the four pinned model files in ignored `models-cache/` next to `android/`; see docs/MODELS.md. Gradle obtains dependencies from Google Maven, Maven Central and JitPack. The AAB is unsigned by default; sign it and generate a universal APK with bundletool using your signing key. Verify with Android Build Tools `apksigner verify`. Keep signing material outside source control. The source repo contains no APK, model weights, videos, keystores or passwords.
 
 ## Evaluation and limitations
 
@@ -40,10 +40,12 @@ The judge-model route failed its preregistered iter6 success criterion and has e
 
 Original app source: [MIT](LICENSE). Dependencies and models retain separate terms. SenseVoiceSmall weights use the custom FunASR model agreement, **not MIT**; upstream commercial-use interpretation still awaits final confirmation. See [the license audit](docs/LICENSING.md).
 
-Model downloads contact GitHub/Hugging Face. Selected video content, transcripts and vectors stay in app-managed storage. Uninstall removes app data, while source videos remain with their provider. Android automatic app backup is disabled; manage device and file sharing according to your privacy needs.
+Bundled model preparation needs no network; the app has no INTERNET permission. Selected video content, transcripts and vectors stay in app-managed storage. Uninstall removes app data, while source videos remain with their provider. Android automatic app backup is disabled; manage device and file sharing according to your privacy needs.
 
-## UI illustrations
+## Real Android layout renders
 
-These labelled HTML renders use demo data. They are not Android/device captures or actual inference results.
+56 native-Skia renders of production XML, demo state and abstract placeholder thumbnails; these are not device inference/playback evidence. Chinese/English, light/dark; [provenance and full list](screenshots/1.0.3/README.md).
 
-[导入与索引 / Import](screenshots/01-import-index.png) · [Top-3](screenshots/02-search-results.png) · [播放 / Playback](screenshots/03-playback-seek.png) · [低置信 / Low confidence](screenshots/04-low-confidence.png)
+[Home](screenshots/1.0.3/home-empty-en-light.png) · [主页](screenshots/1.0.3/home-empty-zh-light.png) · [Results](screenshots/1.0.3/search-results-en-light.png) · [深色结果](screenshots/1.0.3/search-results-zh-dark.png) · [Progress](screenshots/1.0.3/indexing-progress-en-light.png)
+
+![Jingku results](screenshots/1.0.3/search-results-en-light.png)

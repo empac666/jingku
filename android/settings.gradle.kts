@@ -17,3 +17,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "broll-poc"
 include(":app")
+
+include(":models")

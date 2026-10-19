@@ -1,3 +1,15 @@
+# 1.0.3 (versionCode 4) — final local release
+
+中文：离线模型随 APK/AAB 安装，无需首次联网下载。新增暖色 Material 3 深浅主题、搜索与台词卡片、导入队列与索引进度；修复活动索引时的空闲操作、最近搜索触控尺寸、结果元信息及许可文案。保留 1.0.2 启动防护与崩溃报告。权重再分发适用独立许可，SenseVoice 商用解释仍待确认。尚未真机验证；无上传或发布。
+
+English: Models are bundled in the install-time asset pack; first launch prepares them offline. Warm Material 3 light/dark UI adds dialogue result cards, import queue and indexing progress. Round2 fixes indexing prompts, Recent touch size, metadata and localized license readability. 1.0.2 startup/crash safeguards remain. Separate model redistribution terms apply; SenseVoice commercial interpretation remains unresolved. Physical-device acceptance is pending; this is local only.
+
+APK: `out/jingku-1.0.3-arm64-v8a.apk` (786,066,801 bytes), SHA-256 `7a2db10294ed4ac22b3c6b690387b62d2529d2c9e661cb9f99a8c1683fcdf45a`.
+
+AAB: `out/jingku-1.0.3.aab` (580,466,169 bytes), SHA-256 `c677642d64fd0fb0f51158de2ca775b9c7b4e7f2b0db49dc1b6886a90137708e`.
+
+Checks: 37 release / 42 debug tests; lint 0 errors / 74 warnings; same certificate, APK v2/v3, no INTERNET/debug, 16KB native alignment. 56 real Android layout renders. [Full report](docs/REPORT-1.0.3.md).
+
 # Jingku / 镜库 1.0.2 — local release candidate
 
 中文 pitch：用一句话，找回本地视频里说过的那一刻。

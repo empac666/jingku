@@ -1,0 +1,272 @@
+{
+  "litert-community/embeddinggemma-2-text-270m-litert-lm": {
+    "sha": "9be6e8b90982095dc05c2bd162e4b954ee4dbac7",
+    "license": "apache-2.0",
+    "files": [
+      {
+        "name": "embeddinggemma-2-text-270m.litertlm",
+        "bytes": 164626432
+      },
+      {
+        "name": "embeddinggemma-2-text-270m_Google_Tensor_G5.litertlm",
+        "bytes": 166007264
+      },
+      {
+        "name": "embeddinggemma-2-text-270m_Google_Tensor_G6.litertlm",
+        "bytes": 199532256
+      },
+      {
+        "name": "embeddinggemma-2-text-270m_Intel_PTL.litertlm",
+        "bytes": 316715544
+      },
+      {
+        "name": "embeddinggemma-2-text-270m_MediaTek_MT6991.litertlm",
+        "bytes": 416350208
+      },
+      {
+        "name": "embeddinggemma-2-text-270m_MediaTek_MT6993.litertlm",
+        "bytes": 385925120
+      },
+      {
+        "name": "embeddinggemma-2-text-270m_Qualcomm_QCS8275.litertlm",
+        "bytes": 208011264
+      },
+      {
+        "name": "embeddinggemma-2-text-270m_Qualcomm_SM8550.litertlm",
+        "bytes": 207896576
+      },
+      {
+        "name": "embeddinggemma-2-text-270m_Qualcomm_SM8650.litertlm",
+        "bytes": 207798272
+      },
+      {
+        "name": "embeddinggemma-2-text-270m_Qualcomm_SM8750.litertlm",
+        "bytes": 187596800
+      },
+      {
+        "name": "embeddinggemma-2-text-270m_Qualcomm_SM8850.litertlm",
+        "bytes": 202293248
+      }
+    ]
+  },
+  "litert-community/embeddinggemma-2-text-vision-440m-litert-lm": {
+    "sha": "e301f74d5551b0c2641bd5cb4652a76239d5c5f8",
+    "license": "apache-2.0",
+    "files": [
+      {
+        "name": "embeddinggemma-2-text-vision-440m.litertlm",
+        "bytes": 387710976
+      },
+      {
+        "name": "embeddinggemma-2-text-vision-440m_Google_Tensor_G5.litertlm",
+        "bytes": 559418036
+      },
+      {
+        "name": "embeddinggemma-2-text-vision-440m_Google_Tensor_G6.litertlm",
+        "bytes": 513166004
+      },
+      {
+        "name": "embeddinggemma-2-text-vision-440m_Intel_PTL.litertlm",
+        "bytes": 752061108
+      },
+      {
+        "name": "embeddinggemma-2-text-vision-440m_MediaTek_MT6991.litertlm",
+        "bytes": 798097408
+      },
+      {
+        "name": "embeddinggemma-2-text-vision-440m_MediaTek_MT6993.litertlm",
+        "bytes": 767770624
+      },
+      {
+        "name": "embeddinggemma-2-text-vision-440m_Qualcomm_QCS8275.litertlm",
+        "bytes": 465977344
+      },
+      {
+        "name": "embeddinggemma-2-text-vision-440m_Qualcomm_SM8550.litertlm",
+        "bytes": 465993728
+      },
+      {
+        "name": "embeddinggemma-2-text-vision-440m_Qualcomm_SM8650.litertlm",
+        "bytes": 465747968
+      },
+      {
+        "name": "embeddinggemma-2-text-vision-440m_Qualcomm_SM8750.litertlm",
+        "bytes": 446611456
+      },
+      {
+        "name": "embeddinggemma-2-text-vision-440m_Qualcomm_SM8850.litertlm",
+        "bytes": 462536704
+      }
+    ]
+  },
+  "litert-community/embeddinggemma-300m": {
+    "sha": "459f1d37fec9635eb1730ebdbc219bfc3226c8e7",
+    "license": "gemma",
+    "files": [
+      {
+        "name": "embeddinggemma-300M_seq1024_mixed-precision.google.tensor_g5.tflite",
+        "bytes": 201603664
+      },
+      {
+        "name": "embeddinggemma-300M_seq1024_mixed-precision.google.tensor_g6.tflite",
+        "bytes": 209530336
+      },
+      {
+        "name": "embeddinggemma-300M_seq1024_mixed-precision.mediatek.mt6991.tflite",
+        "bytes": 187525992
+      },
+      {
+        "name": "embeddinggemma-300M_seq1024_mixed-precision.mediatek.mt6993.tflite",
+        "bytes": 185540768
+      },
+      {
+        "name": "embeddinggemma-300M_seq1024_mixed-precision.qualcomm.sm8550.tflite",
+        "bytes": 195254816
+      },
+      {
+        "name": "embeddinggemma-300M_seq1024_mixed-precision.qualcomm.sm8650.tflite",
+        "bytes": 195361312
+      },
+      {
+        "name": "embeddinggemma-300M_seq1024_mixed-precision.qualcomm.sm8750.tflite",
+        "bytes": 195271200
+      },
+      {
+        "name": "embeddinggemma-300M_seq1024_mixed-precision.qualcomm.sm8850.tflite",
+        "bytes": 198740512
+      },
+      {
+        "name": "embeddinggemma-300M_seq1024_mixed-precision.tflite",
+        "bytes": 183329528
+      },
+      {
+        "name": "embeddinggemma-300M_seq2048_mixed-precision.google.tensor_g5.tflite",
+        "bytes": 247708816
+      },
+      {
+        "name": "embeddinggemma-300M_seq2048_mixed-precision.google.tensor_g6.tflite",
+        "bytes": 252056544
+      },
+      {
+        "name": "embeddinggemma-300M_seq2048_mixed-precision.mediatek.mt6991.tflite",
+        "bytes": 194214772
+      },
+      {
+        "name": "embeddinggemma-300M_seq2048_mixed-precision.mediatek.mt6993.tflite",
+        "bytes": 192133828
+      },
+      {
+        "name": "embeddinggemma-300M_seq2048_mixed-precision.qualcomm.sm8550.tflite",
+        "bytes": 244877856
+      },
+      {
+        "name": "embeddinggemma-300M_seq2048_mixed-precision.qualcomm.sm8650.tflite",
+        "bytes": 244771360
+      },
+      {
+        "name": "embeddinggemma-300M_seq2048_mixed-precision.qualcomm.sm8750.tflite",
+        "bytes": 219793952
+      },
+      {
+        "name": "embeddinggemma-300M_seq2048_mixed-precision.qualcomm.sm8850.tflite",
+        "bytes": 221776416
+      },
+      {
+        "name": "embeddinggemma-300M_seq2048_mixed-precision.tflite",
+        "bytes": 195912440
+      },
+      {
+        "name": "embeddinggemma-300M_seq256_mixed-precision.google.tensor_g5.tflite",
+        "bytes": 191474704
+      },
+      {
+        "name": "embeddinggemma-300M_seq256_mixed-precision.google.tensor_g6.tflite",
+        "bytes": 201284320
+      },
+      {
+        "name": "embeddinggemma-300M_seq256_mixed-precision.mediatek.mt6991.tflite",
+        "bytes": 187654076
+      },
+      {
+        "name": "embeddinggemma-300M_seq256_mixed-precision.mediatek.mt6993.tflite",
+        "bytes": 176160768
+      },
+      {
+        "name": "embeddinggemma-300M_seq256_mixed-precision.qualcomm.sm8550.tflite",
+        "bytes": 184412704
+      },
+      {
+        "name": "embeddinggemma-300M_seq256_mixed-precision.qualcomm.sm8650.tflite",
+        "bytes": 184400416
+      },
+      {
+        "name": "embeddinggemma-300M_seq256_mixed-precision.qualcomm.sm8750.tflite",
+        "bytes": 181676576
+      },
+      {
+        "name": "embeddinggemma-300M_seq256_mixed-precision.qualcomm.sm8850.tflite",
+        "bytes": 181987872
+      },
+      {
+        "name": "embeddinggemma-300M_seq256_mixed-precision.tflite",
+        "bytes": 179131736
+      },
+      {
+        "name": "embeddinggemma-300M_seq512_mixed-precision.google.tensor_g5.tflite",
+        "bytes": 191971472
+      },
+      {
+        "name": "embeddinggemma-300M_seq512_mixed-precision.google.tensor_g6.tflite",
+        "bytes": 201824480
+      },
+      {
+        "name": "embeddinggemma-300M_seq512_mixed-precision.mediatek.mt6991.tflite",
+        "bytes": 187803028
+      },
+      {
+        "name": "embeddinggemma-300M_seq512_mixed-precision.mediatek.mt6993.tflite",
+        "bytes": 183543612
+      },
+      {
+        "name": "embeddinggemma-300M_seq512_mixed-precision.qualcomm.sm8550.tflite",
+        "bytes": 190290464
+      },
+      {
+        "name": "embeddinggemma-300M_seq512_mixed-precision.qualcomm.sm8650.tflite",
+        "bytes": 190294560
+      },
+      {
+        "name": "embeddinggemma-300M_seq512_mixed-precision.qualcomm.sm8750.tflite",
+        "bytes": 184363552
+      },
+      {
+        "name": "embeddinggemma-300M_seq512_mixed-precision.qualcomm.sm8850.tflite",
+        "bytes": 184474144
+      },
+      {
+        "name": "embeddinggemma-300M_seq512_mixed-precision.tflite",
+        "bytes": 179132472
+      }
+    ]
+  },
+  "litert-community/embeddinggemma-300m-QAT": {
+    "error": "HTTPError"
+  },
+  "official_sherpa_sensevoice_archives": [
+    {
+      "name": "sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2",
+      "bytes": 163002883,
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2"
+    },
+    {
+      "name": "sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2025-09-09.tar.bz2",
+      "bytes": 165783878,
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2025-09-09.tar.bz2"
+    },
+    {
+      "name": "sherpa-onnx-sense-voice-funasr-nano-int8-2025-12-17.tar.bz2",
+      "bytes": 187693225,
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-sense-voice-funasr-nano-int8-2025-12-17.tar.bz2"
+    }
+  ]
+}

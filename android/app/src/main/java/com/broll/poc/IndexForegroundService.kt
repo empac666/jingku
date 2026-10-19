@@ -26,6 +26,10 @@ class IndexForegroundService : Service() {
     @Volatile
     private var foregroundStarted = false
 
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(runCatching { LocaleStore.wrap(newBase) }.getOrDefault(newBase))
+    }
+
     override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -119,7 +123,8 @@ class IndexForegroundService : Service() {
         indexJob?.cancel()
         releaseWakeLock()
         teardownForeground()
-        IndexTaskCallbacks.running = false
+        // Cancellation may still be unwinding native inference. finish() releases the UI gate.
+        if (indexJob == null) IndexTaskCallbacks.running = false
         super.onDestroy()
     }
 
@@ -166,7 +171,7 @@ class IndexForegroundService : Service() {
         val open = PendingIntent.getActivity(
             this,
             0,
-            Intent(this, MainActivity::class.java),
+            Intent(this, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP),
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
         )
         val cancel = PendingIntent.getService(this, 1,

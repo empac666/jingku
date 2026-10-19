@@ -44,16 +44,16 @@ class SherpaTranscriber(
 
     fun ensureLoaded() {
         if (!store.isSenseVoiceReady()) {
-            error("SenseVoice 模型未就绪或 SHA-256 校验失败，请下载")
+            error("Bundled SenseVoice assets unavailable")
         }
         if (recognizer == null) {
             val modelConfig = OfflineModelConfig(
                 senseVoice = OfflineSenseVoiceModelConfig(
-                    model = store.senseVoiceOnnx.absolutePath,
+                    model = store.senseVoiceOnnx,
                     language = "auto",
                     useInverseTextNormalization = true,
                 ),
-                tokens = store.senseVoiceTokens.absolutePath,
+                tokens = store.senseVoiceTokens,
                 numThreads = 2,
                 debug = false,
                 provider = "cpu",
@@ -63,16 +63,16 @@ class SherpaTranscriber(
                 modelConfig = modelConfig,
                 decodingMethod = "greedy_search",
             )
-            recognizer = OfflineRecognizer(assetManager = null, config = config)
+            recognizer = OfflineRecognizer(assetManager = store.assets, config = config)
         }
         if (vad == null) {
             val vadPath = store.locateVad()
             if (vadPath != null) {
                 vad = Vad(
-                    assetManager = null,
+                    assetManager = store.assets,
                     config = VadModelConfig(
                         sileroVadModelConfig = SileroVadModelConfig(
-                            model = vadPath.absolutePath,
+                            model = vadPath,
                             threshold = 0.5f,
                             minSilenceDuration = 0.25f,
                             minSpeechDuration = 0.5f,

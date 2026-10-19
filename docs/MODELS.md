@@ -1,16 +1,17 @@
-# 模型准备 / Model setup
+# Bundled offline models / 随应用离线模型
 
-Weights are deliberately excluded from Git and APK. Use the app's explicit setup/download action. No account, API token or cloud inference is required. A network connection to GitHub and Hugging Face is needed for these downloads; no media is sent to either service.
+1.0.3 APK/AAB redistributes all four model files in the install-time `models` asset pack. No first-run network download, account or API token is needed; the merged manifest has no INTERNET permission. Weights remain excluded from source Git. 模型随应用安装，首次启动在后台准备，不需要联网。
 
-| Model | Exact artifact / origin | Terms |
-| --- | --- | --- |
-| EmbeddingGemma 2 740M | [`embeddinggemma-2-740m.litertlm`](https://huggingface.co/litert-community/embeddinggemma-2-740m-litert-lm/resolve/24d962e906c7d332c6428e71c9676855024569e2/embeddinggemma-2-740m.litertlm), expected 484,622,336 bytes | Apache-2.0 per variant/base model cards |
-| SenseVoiceSmall int8 ONNX | [sherpa release archive](https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17.tar.bz2); extracts `model.int8.onnx` and `tokens.txt` | Underlying weights: FunASR custom model agreement; preserve SenseVoiceSmall / FunASR / FunAudioLLM / Alibaba attribution, plus k2-fsa conversion attribution |
-| Silero VAD | [`silero_vad.onnx`](https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx) | MIT; preserve Silero Team notice |
+| Model file | Bytes | Raw DEFLATE bytes | License |
+| --- | ---: | ---: | --- |
+| `embeddinggemma-2-740m.litertlm` | 484,622,336 | 391,865,923 | Apache-2.0 (EmbeddingGemma 2) |
+| `model.int8.onnx` | 239,233,841 | 160,168,880 | FunASR model agreement v1.1 |
+| `tokens.txt` | 315,894 | 135,378 | FunASR model agreement v1.1 |
+| `silero_vad.onnx` | 643,854 | 508,088 | MIT (Silero) |
 
-模型下载由用户主动触发。Embedding 文件约 485 MB（十进制）；SenseVoice 下载归档约 1.05 GB，仅保留 239,233,841 字节 ONNX 与 315,894 字节 tokens；归档解压期间需要额外空间。下载失败可重试，勿在应用运行中手动替换模型。模型文件位于应用专用 `models/` 目录；卸载应用会移除这些模型，源视频不受影响。
+Total: 724,815,925 bytes (691.24 MiB). Only EmbeddingGemma is extracted into internal filesDir/models (484,622,336 bytes), with SHA verification, fsync/atomic rename and version+SHA marker. Later launches skip hashing when marker/size match. Speech models load directly through AssetManager. Allow at least 530 MiB free for extraction and reserve; APK+extracted embedding is about 1.18 GiB before app data/ART/videos and installation staging. Old downloaded models from upgrades may occupy additional storage.
 
-Downloads use a fixed HF commit and explicit GitHub `asr-models` release-tag assets, with SHA-256 constants measured from complete downloads on the build box. The release tag is not a content-addressed identifier: the hashes below enforce the exact approved bytes even if an upstream release asset is replaced. Existing installed weights are checked as well. Corrupt files are deleted; a corrupt download is retried once, then fails without accepting partial bytes. The ASR archive is checked before extraction, and ONNX/tokens are checked independently afterwards. Release builds cannot import or fall back to `/data/local/tmp`; debug imports still require these digests. Temporary build-box weights were deleted after verification.
+For source builds, place the four exact approved files in `models-cache/` next to `android/` (ignored by Git). `:models:copyModels` checks every SHA before packaging. URLs/revision are pinned in AppConfig.kt. The mixed SenseVoice archive (1,047,870,769 bytes) is build cache only; extract just the int8 ONNX and tokens. Use `./gradlew testReleaseUnitTest lintRelease bundleRelease`; sign the AAB and use bundletool 1.18.3 universal mode for a single sideload APK. A regular base APK does not include the separate install-time pack.
 
 | Artifact | Bytes | SHA-256 |
 | --- | ---: | --- |
@@ -21,8 +22,7 @@ Downloads use a fixed HF commit and explicit GitHub `asr-models` release-tag ass
 | vad | 643854 | `9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6` |
 
 
-Only transcript text is embedded. The 740M file includes multimodal capabilities, but Jingku does not use image/audio embeddings or index visual scenes. Video thumbnails are display previews, not search inputs. Silero only detects speech segments; SenseVoice performs transcription.
 
-See [license audit](LICENSING.md), especially the unresolved upstream commercial-use interpretation. Do not assume source-code MIT licensing covers downloaded model weights.
+Only transcript text is embedded. The 740M file includes unused multimodal capabilities. Thumbnails are display previews. Silero detects speech; SenseVoice transcribes. The historical warning threshold 0.7889297604560853 is unchanged; smaller models require a fresh quality/threshold evaluation.
 
-The database stores local transcripts and embeddings. Schema generation 6 asks users of earlier experimental builds to explicitly clear/rebuild their old index; there is no silent schema migration. Search scans stored dialogue vectors in memory and returns three windows without deduplication. Large libraries and physical-device memory/thermal behavior are not characterized in this candidate.
+Weights are REDISTRIBUTED in APK/AAB: retain FunASR v1.1 and attribution for SenseVoiceSmall; commercial-use interpretation remains unresolved. The exact pinned EmbeddingGemma **2** model declares Apache-2.0; older EmbeddingGemma 300M uses Gemma terms and is not substituted. Silero is MIT. See [full license audit](LICENSING.md), bundled full texts in `licenses/`, and [final report](REPORT-1.0.3.md) for smaller candidates and measured delivery sizes.

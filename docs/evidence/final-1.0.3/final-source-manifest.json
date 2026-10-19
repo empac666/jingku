@@ -1,0 +1,432 @@
+{
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "f5eddb810ffff2fad9601c134cbc321e56bc920fab7f192f361beb889e783dcc"
+    },
+    {
+      "path": "app/build.gradle.kts",
+      "sha256": "4df4965b4c4cb562cf1cc6ea391e99b1b081033880a03fe5c60a19041f1b2ed0"
+    },
+    {
+      "path": "app/proguard-rules.pro",
+      "sha256": "67afdf123b16303afc404696de31a76b07053e92e571868a1ce00c0418bee78e"
+    },
+    {
+      "path": "app/src/main/AndroidManifest.xml",
+      "sha256": "3844048095df7b2e8400f0cd636140db15a2ae98461548cac4c54f6b6d7d879c"
+    },
+    {
+      "path": "app/src/main/assets/NOTICE.txt",
+      "sha256": "a14f4646d3056cef0e2ce7554374c836e336484529831f9a04435d03c6f4be55"
+    },
+    {
+      "path": "app/src/main/assets/licenses/ABOUT-en.txt",
+      "sha256": "56d0114057834805a6e356af4126d2bdec8f352c9e456322cdff21f760c56ae1"
+    },
+    {
+      "path": "app/src/main/assets/licenses/ABOUT-zh.txt",
+      "sha256": "da696985405fc23a45aefc846f9183fc311f34e08ffee6f59966d9358f4f80a4"
+    },
+    {
+      "path": "app/src/main/assets/licenses/Commons-Compress-LICENSE.txt",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "app/src/main/assets/licenses/Commons-Compress-NOTICE.txt",
+      "sha256": "28a309fd415da6e802ecf85061a451f7ac4353f3610f2982f7af29e9d1529289"
+    },
+    {
+      "path": "app/src/main/assets/licenses/EmbeddingGemma2-Apache-2.0.txt",
+      "sha256": "2b4b4c87f47d6033931361417b3927ee01fcad11482ee097dde10881c8b0a32a"
+    },
+    {
+      "path": "app/src/main/assets/licenses/FunASR-MODEL_LICENSE.txt",
+      "sha256": "7dba975a2069691db4992b0592d70828b330d2f8a30a71450f4e152a554e84f8"
+    },
+    {
+      "path": "app/src/main/assets/licenses/Gradle-wrapper-LICENSE.txt",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    },
+    {
+      "path": "app/src/main/assets/licenses/Kotlin-coroutines-Apache-2.0.txt",
+      "sha256": "b1febe6399dffb10d19d35e7663ab16300c93cb0476a94115df1cc0097a8ffd8"
+    },
+    {
+      "path": "app/src/main/assets/licenses/LICENSING.md",
+      "sha256": "ccc6eef1425639f55ade3d548db1c01c20fac29cb9b1b0163c0297cdb22fe77e"
+    },
+    {
+      "path": "app/src/main/assets/licenses/LiteRT-LM-Apache-2.0.txt",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "app/src/main/assets/licenses/Material-Apache-2.0.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "app/src/main/assets/licenses/ONNXRuntime-MIT.txt",
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c"
+    },
+    {
+      "path": "app/src/main/assets/licenses/SenseVoice-code-MIT.txt",
+      "sha256": "4bc3bffe14ebe38cc67309991e04f92866835eac1c5e2e1abd37163f67c6de5f"
+    },
+    {
+      "path": "app/src/main/assets/licenses/Silero-MIT.txt",
+      "sha256": "2e63e9a38b6e8fc0c7bc37ce174caca1862870856c6daf5697cfb785e925520b"
+    },
+    {
+      "path": "app/src/main/assets/licenses/sherpa-onnx-Apache-2.0.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/AppConfig.kt",
+      "sha256": "70d1130f7bf8821f742d1a1e117cadecb5d8fa5562c102385d51219b46d2e4c7"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/BrollApplication.kt",
+      "sha256": "9895d61eebcaabf89b05fb15848cddf32e5946decccf7a2628ef0750c2098d70"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/CrashGuard.kt",
+      "sha256": "2c6e0c39c642cca0a0988900bd97c8c37f2bbe686c2dfb94cedf3b27c51949cc"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/CrashReport.kt",
+      "sha256": "ebe9eeee5970a5e6ad5d046e5c0d401841a8d530643eed3db6e902270c8e1b37"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/EngineHolder.kt",
+      "sha256": "3d8fed28a5db3200ce8b9386d505737eef12af44304ac9994f225dddfdd71a17"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/IndexForegroundService.kt",
+      "sha256": "57790e92d6a287b7631780c8bd84ca2032b7fb031951c5ed01cc10f06b886891"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/IndexProgress.kt",
+      "sha256": "12801309f964e20c5cab087c43add959ec405721f77d071b0d6134e602c4d3a7"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/LocaleStore.kt",
+      "sha256": "160d613e24402533ec990746bcf7376753bdb866b05091194badc61ef0eae87b"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/MainActivity.kt",
+      "sha256": "33d72897098363676c51af254baf1f7024db31f78fda7495d7ab5ccdea9a58fb"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/asr/SherpaTranscriber.kt",
+      "sha256": "eca0a4c2b3c302ea2984c7e7b62f388aade918e14026e871bcaa27c08aaa0997"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/data/BundledDb.kt",
+      "sha256": "94d174909386d9232984a573165d7ce4bcb6d6c02718152edcabb6a136b29c75"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/data/BundledSqliteOpen.kt",
+      "sha256": "f2bf921850132184e1802d8d90338deb1323a6cf931913964023a6bf65527b68"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/data/IndexDatabase.kt",
+      "sha256": "d5bc384fa65f13dd1075755c3c22a8de3aa502b81b4f44b542b62234d6aa97dd"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/embed/Embedder.kt",
+      "sha256": "7191958445959b9d4b023447cde773583f5c492e5f60b7004a266a0ac56ba997"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/embed/VectorMath.kt",
+      "sha256": "5bdab9c38cbd3e5289e72de61e48805e5ec88152199b165d200bd56d0c011c3f"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/index/AudioResampler.kt",
+      "sha256": "7eda406e7a8ded0fe95f13cb7d8838c71fd3a9636c9fa2e10fc909587a6047ca"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/index/FtsText.kt",
+      "sha256": "09c1d96a7b27abfa17299154a0390f03c6ee84e99b821cbfa18cb0adb4733804"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/index/MediaPipeline.kt",
+      "sha256": "4e4457f1fac438c904e160ae6d5251037a195516637b8a79c7af91514bbee592"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/index/PcmMono.kt",
+      "sha256": "9a969384e59e610bbe421fd0efc3c6c754063ef163e8d12ccaff920cec637000"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/index/SeekTimestamp.kt",
+      "sha256": "28dc4f7e08e5ae50e50282c7906c95bca0586a1b3d1739876dc4566383c203f7"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/index/VideoIndexer.kt",
+      "sha256": "25746c9b4d10d7d30b03b70b2951e87bff932cc02210cdaa56a54ed44d42dd8d"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/metrics/MetricsLogger.kt",
+      "sha256": "e2c7554c7d9c40cdd9e8494d13b7c367e347cc4001014ea5abbba1bfbebcdcc0"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/model/AsrModelStore.kt",
+      "sha256": "07f4ab329028b3a273d8b06c0a2d26fb529acfeb16011f9b48153c895a3262f4"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/model/BundledModelExtractor.kt",
+      "sha256": "6ca8f53462bbb4cc192acb4fe7c6dab9e79d9f4147427408e6bd95970ffc7198"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/model/ModelPreparation.kt",
+      "sha256": "94e875ffed703c9760f94f1fa1b4e2cc6782a593621bfafd8df6c564425b387d"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/model/ModelStore.kt",
+      "sha256": "bd29051722833577347b3722fe7af10164d6e264f094b04e25eba3aa315914a2"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/model/VerifiedDownload.kt",
+      "sha256": "51a7bd200671350cc354c2fefbe8170f31457b2a9f76bdff2daf22e9feceb66c"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/ui/AspectFrame.kt",
+      "sha256": "1478bf551eef26706258b17e124cf8d09aa062d3e747c8dd49ed0d2ef80eaedf"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/ui/DialogueHighlighter.kt",
+      "sha256": "7783de2323c833f084a2514b3f3acee0dd8c7292155b106473680b49f1e09828"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/ui/ImportSheet.kt",
+      "sha256": "c974e27cfe1b5bf02022eca4bae43670f47a352c585270b3b9d91118be42b54b"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/ui/JingkuScreen.kt",
+      "sha256": "a490b6cbb0eea861dda50e5d8b85b58fe911b22a00914facb2869f4ea5043d57"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/ui/QueueSession.kt",
+      "sha256": "cce08f85fe8f824a2ce8524f198cf2bb8cfd7a471a3fa058bcf0b595f371aeda"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/ui/ReadableDialogs.kt",
+      "sha256": "a8ab9cf0077f8c6fb08289ffa558e5424a2374681ffd29d0957a54390fe882ac"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/ui/SearchLease.kt",
+      "sha256": "78050428bd4a1971074cde98a7d800d6da264d576603e878fa3d19bb1665d18f"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/ui/SearchResultBinder.kt",
+      "sha256": "4603d44f8a2382dcb1759aaf3f80d09731fca653757778a96b5f5f15f13c1c60"
+    },
+    {
+      "path": "app/src/main/java/com/broll/poc/ui/VideoFrameThumb.kt",
+      "sha256": "4421a46df08b221f5743d271b7a8029dc107930c74d3857150ec89bcf1ccd167"
+    },
+    {
+      "path": "app/src/main/res/drawable/bg_badge.xml",
+      "sha256": "4ab260f7f79987d5cd1af3839d73e2945a8c4ff1cc40681aa2fb21daa6f33195"
+    },
+    {
+      "path": "app/src/main/res/drawable/bg_confidence.xml",
+      "sha256": "8858551617c3919f8c2dbf67cecee490818b2cbb2cd565bd85f0d04fb1eb381d"
+    },
+    {
+      "path": "app/src/main/res/drawable/bg_skeleton.xml",
+      "sha256": "e6b145607c67bbe93a72dbe10bda9d1f1af0d9be0267f50c814003b0fe52fbb8"
+    },
+    {
+      "path": "app/src/main/res/drawable/bg_skeleton_line.xml",
+      "sha256": "f91ddea2481ca2cc9f0d31ec77b0769c8275f449dc256bb61f75c7e2ffb94ce2"
+    },
+    {
+      "path": "app/src/main/res/drawable/fixture_still.xml",
+      "sha256": "84f3f0f9bef475c83aad38e3fc4749418d87035cd509644faddac1bc59d54f45"
+    },
+    {
+      "path": "app/src/main/res/drawable/ic_arrow_back.xml",
+      "sha256": "93aa1248bef7ecdb030422d370a478e269e7fd75a4ec583e805a6591c06f31d4"
+    },
+    {
+      "path": "app/src/main/res/drawable/ic_arrow_upward.xml",
+      "sha256": "063a9f1727ef8c43a12466d5a36e3bf136f0c34f13df78fa691a4148d67aee4c"
+    },
+    {
+      "path": "app/src/main/res/drawable/ic_close.xml",
+      "sha256": "90bdd19498c4cade110ca79ad6fe647ed1d8d364b9e3af3b02ff772828e4abd2"
+    },
+    {
+      "path": "app/src/main/res/drawable/ic_info.xml",
+      "sha256": "557df2658193a184b0e106850cde14bda5a015dca22caeac55cab4a0847bdd1c"
+    },
+    {
+      "path": "app/src/main/res/drawable/ic_launcher_background.xml",
+      "sha256": "fb6d7a062342c1e29ebdfc393a2a1a4524e2b1d5916fddada93f25c34b4f3846"
+    },
+    {
+      "path": "app/src/main/res/drawable/ic_launcher_foreground.xml",
+      "sha256": "b39efbe784eeafb0cb0160f41b588f12629910ff92848c83aed962fee6fac7b0"
+    },
+    {
+      "path": "app/src/main/res/drawable/ic_launcher_legacy.xml",
+      "sha256": "8aea2341d9241d61a36ab8ffc29a9b36ea01cf8b86c4db477e80a40da231360c"
+    },
+    {
+      "path": "app/src/main/res/drawable/ic_notification.xml",
+      "sha256": "0d47e8b45d844c7c15c42e6dc11fe369e43e1f2acb0ce51628600bf711fce4b7"
+    },
+    {
+      "path": "app/src/main/res/drawable/ic_search.xml",
+      "sha256": "05781629b487067b98f455a4f6521a6bf5b4b53f94bca1ff47b5890c4e75d3ca"
+    },
+    {
+      "path": "app/src/main/res/drawable/ic_video_library.xml",
+      "sha256": "b7158f5947b49147b74549af1bb2716c798a4bdf548add8488d0d99101db7cb1"
+    },
+    {
+      "path": "app/src/main/res/drawable/ic_videocam.xml",
+      "sha256": "a1444b1f9409d22cbea620fda459e2e4bd0f5071d82fd3b3f605b48f4746ff49"
+    },
+    {
+      "path": "app/src/main/res/layout/activity_main.xml",
+      "sha256": "9589bb0b5e35663fc297d7df77526b26b555cedd966d247c247f14ca9dfcf25e"
+    },
+    {
+      "path": "app/src/main/res/layout/item_queue.xml",
+      "sha256": "7f0c5678b017b219973792915230e6641c074f15739279e9cc19003629aa1717"
+    },
+    {
+      "path": "app/src/main/res/layout/item_search_result.xml",
+      "sha256": "29b87affe39190ccdd48f483b4546e0c244436f842012edc919da3931ccbf9dc"
+    },
+    {
+      "path": "app/src/main/res/layout/item_skeleton.xml",
+      "sha256": "5c9d23bd5df89de0b4d4712d0a53f70959beebd080e7d0530b59349257dbd374"
+    },
+    {
+      "path": "app/src/main/res/layout/sheet_import.xml",
+      "sha256": "b39c9a108d77365ffc05922e2fc15c44f05c8455a4367335fcb94667e86b70b2"
+    },
+    {
+      "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+      "sha256": "1c832bf194d8eecd439a92bcced0df144c9f566b934b3d7865e983d8ee8dbdeb"
+    },
+    {
+      "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml",
+      "sha256": "1c832bf194d8eecd439a92bcced0df144c9f566b934b3d7865e983d8ee8dbdeb"
+    },
+    {
+      "path": "app/src/main/res/values/bools.xml",
+      "sha256": "b829cc8d232b8568a8206dfc7f6d8121d567e4b1121881ef7af6356e5bbd292c"
+    },
+    {
+      "path": "app/src/main/res/values/colors.xml",
+      "sha256": "6027fd856d62dd047f114731fc65975ea5b801fd830708c10b8828ea71ecc4c1"
+    },
+    {
+      "path": "app/src/main/res/values/dimens.xml",
+      "sha256": "b4cf10910e33c8007c22d84ca70d803a87f3a14ecb45cb1581ddead5a398cfa5"
+    },
+    {
+      "path": "app/src/main/res/values/strings.xml",
+      "sha256": "61a997d490ca90ea7fcf5082a469302a1b70ce0b73dba04929dd48fc4efe916e"
+    },
+    {
+      "path": "app/src/main/res/values/themes.xml",
+      "sha256": "2af9fed4f68e2f307dee146f2bbbce624d84cb79270c861da9770a1b57c84566"
+    },
+    {
+      "path": "app/src/main/res/values-en/strings.xml",
+      "sha256": "16e867c860a1bf74c9373d6b479049c4d8e39f3328d89cf035f68c3efa4a8198"
+    },
+    {
+      "path": "app/src/main/res/values-night/bools.xml",
+      "sha256": "0e975f4fe835d5fb6e921c27c621d1a8fc6f994a88a251000b2cc4c9b099751a"
+    },
+    {
+      "path": "app/src/main/res/values-night/colors.xml",
+      "sha256": "466660786cb296991d1d8c211f9274dc24c82a243608b2ceaf13f67ae7e6f26f"
+    },
+    {
+      "path": "app/src/test/java/com/broll/poc/CrashReportTest.kt",
+      "sha256": "ba5f633be09060a6f277a0b74abc6c89081d33e07056f57fb994ddc6cc0f4e84"
+    },
+    {
+      "path": "app/src/test/java/com/broll/poc/QueueSessionTest.kt",
+      "sha256": "0a1102238b0cb7cf6aa9cc5834624735d84deaca77841a4b5e12756878f6ffc6"
+    },
+    {
+      "path": "app/src/test/java/com/broll/poc/data/BundledDbTransactionTest.kt",
+      "sha256": "32532782b20b1c2302e2a46921cb60590c3e69283b1c5dc7b10ce4c9196e83b6"
+    },
+    {
+      "path": "app/src/test/java/com/broll/poc/data/SemanticRetrievalTest.kt",
+      "sha256": "b2633580398745d15db18d687314e4ba42be3c5e8ec350add3f50c405be6b3b8"
+    },
+    {
+      "path": "app/src/test/java/com/broll/poc/index/AudioResamplerTest.kt",
+      "sha256": "63ba86037d7d639c51583f1ee7060ea6db473a86b403723e350326fe22fad757"
+    },
+    {
+      "path": "app/src/test/java/com/broll/poc/index/FtsOrRecallTest.kt",
+      "sha256": "1b37a1ac74205c80762cdd0c8399340bc84ccb73b01380f1de084f4a6cd4d3fc"
+    },
+    {
+      "path": "app/src/test/java/com/broll/poc/index/FtsTextTest.kt",
+      "sha256": "e9365962cdab7f291af3334019c3dc50d359e5672f93e1dc9e3ea1e01395beb8"
+    },
+    {
+      "path": "app/src/test/java/com/broll/poc/index/PcmDecodeTailTest.kt",
+      "sha256": "284416b181d5dce98a8100207211001ff2d5c67af39f9a662568b257a1419c7a"
+    },
+    {
+      "path": "app/src/test/java/com/broll/poc/index/SeekTimestampTest.kt",
+      "sha256": "834ffa17644febdc0b4ca813bef2256d8456da1ade3a28ba663b5ae4f6f1e911"
+    },
+    {
+      "path": "app/src/test/java/com/broll/poc/model/VerifiedDownloadTest.kt",
+      "sha256": "db9800eee13e27151c24d23a391f0dd585a3e20b7e005c8fc4cade5e5a266ac9"
+    },
+    {
+      "path": "app/src/testDebug/java/com/broll/poc/BaselineScreenshotTest.kt",
+      "sha256": "3c919d2c685d5b3b68d15a1ad0af79c0fe2f04a05ca7e2042168cdb24ff71a47"
+    },
+    {
+      "path": "app/src/testDebug/java/com/broll/poc/UiStateTest.kt",
+      "sha256": "574c0ca4647c115fea35402df470b816f23980f9436b3a3b859c00745fc1ee61"
+    },
+    {
+      "path": "build.gradle.kts",
+      "sha256": "20f97cc8b8871253c8c1c0964b68793181f41e7ec8aeb05e6dcbfca02f59f91f"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.jar",
+      "sha256": "81a82aaea5abcc8ff68b3dfcb58b3c3c429378efd98e7433460610fecd7ae45f"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.properties",
+      "sha256": "6420a0e9a6966590e02b91f100693a60edc38f617f9b1cff4f896e00d9986fbe"
+    },
+    {
+      "path": "gradle.properties",
+      "sha256": "64efc0b79a36105168b77adc9f550338ca144a2ef1a5474719471a9212774eb1"
+    },
+    {
+      "path": "gradlew",
+      "sha256": "734b3879d3501dce471cf0522d3bcbafe76873d9fc5129345b67fb43bd15e933"
+    },
+    {
+      "path": "gradlew.bat",
+      "sha256": "57931b17dd228e5c24dac90e815d0bf82477e831a4618dfab4136f5446b42a9f"
+    },
+    {
+      "path": "models/build.gradle.kts",
+      "sha256": "b3659d5f8f509ea00c5c20a9ff5de1620f1453d631a458646a907fab13fbc323"
+    },
+    {
+      "path": "settings.gradle.kts",
+      "sha256": "e425e08d64278ab93ff693489129a35032cb36d581bd40123abb87fb7a670a71"
+    }
+  ]
+}

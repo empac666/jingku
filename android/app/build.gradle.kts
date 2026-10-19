@@ -11,18 +11,21 @@ android {
         applicationId = "com.broll.poc"
         minSdk = 26
         targetSdk = 35
-        versionCode = 3
-        versionName = "1.0.2"
+        versionCode = 4
+        versionName = "1.0.3"
         ndk {
             abiFilters += listOf("arm64-v8a")
         }
     }
 
+    assetPacks += listOf(":models")
+    androidResources { noCompress += listOf("onnx", "litertlm", "txt") }
+
     buildFeatures { buildConfig = true }
     lint { checkReleaseBuilds = true }
 
     testOptions {
-        unitTests.isIncludeAndroidResources = false
+        unitTests.isIncludeAndroidResources = true
     }
 
     buildTypes {
@@ -75,9 +78,30 @@ dependencies {
     implementation("com.google.ai.edge.litertlm:litertlm-android:0.18.0")
     // Official sherpa-onnx Android artifact via JitPack (see k2-fsa.github.io/sherpa/onnx/java-api/anroid-java.html)
     implementation("com.github.k2-fsa.sherpa-onnx:sherpa-onnx:v1.13.5")
-    implementation("org.apache.commons:commons-compress:1.27.1")
     implementation("androidx.sqlite:sqlite-android:2.7.1")
     implementation("androidx.sqlite:sqlite-bundled-android:2.7.1")
     testImplementation("androidx.sqlite:sqlite-bundled-jvm:2.7.1")
     testImplementation("junit:junit:4.13.2")
+}
+
+// Screenshot fixtures live only in testDebug; release unit tests never execute them.
+dependencies {
+    testImplementation("org.robolectric:robolectric:4.17")
+    testImplementation("io.github.takahirom.roborazzi:roborazzi:1.76.0")
+}
+tasks.withType<Test>().configureEach {
+    systemProperty("roborazzi.test.record", providers.gradleProperty("screenshots").getOrElse("false"))
+    systemProperty("jingku.screenshots", providers.gradleProperty("screenshots").getOrElse("false"))
+    systemProperty("jingku.screenshotStates", providers.gradleProperty("screenshotStates").getOrElse(""))
+    systemProperty("jingku.screenshotDir", providers.gradleProperty("screenshotDir").getOrElse(rootProject.file("../screenshots/1.0.3/round1").absolutePath))
+    systemProperty("robolectric.dependency.repo.url", "https://repo.maven.apache.org/maven2")
+    maxHeapSize = "1536m"
+    if (name == "testDebugUnitTest" && providers.gradleProperty("screenshots").getOrElse("false") == "true") {
+        outputs.upToDateWhen { false }
+    }
+}
+tasks.register("recordBaselineScreenshots") {
+    group = "verification"
+    description = "Render agreed UI states to round1 (-Pscreenshots=true); historical baseline is preserved"
+    dependsOn("testDebugUnitTest")
 }

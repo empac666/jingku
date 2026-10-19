@@ -1,0 +1,8 @@
+.gradle/
+.kotlin/
+**/build/
+local.properties
+# Generated weights are copied from ../models-cache; never check them in.
+models/src/main/assets/offline/
+*.apk
+*.aab

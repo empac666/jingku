@@ -1,1 +1,43 @@
-<resources><color name="seed_primary">#C3BFFF</color><color name="seed_secondary">#D0BCFF</color><color name="low_confidence">#FFBD7A</color></resources>
+<resources>
+    <color name="surface_dim">#0C0B09</color>
+    <color name="surface">#12110F</color>
+    <color name="surface_container_lowest">#0E0D0B</color>
+    <color name="surface_container_low">#1A1917</color>
+    <color name="surface_container">#242220</color>
+    <color name="surface_container_high">#2C2A26</color>
+    <color name="surface_container_highest">#3A3834</color>
+    <color name="on_surface">#F3F0E8</color>
+    <color name="on_surface_variant">#A8A396</color>
+    <color name="outline">#948F84</color>
+    <color name="outline_variant">#6A645A</color>
+    <color name="primary">#F3F0E8</color>
+    <color name="on_primary">#12110F</color>
+    <color name="primary_container">#2C2A26</color>
+    <color name="on_primary_container">#F3F0E8</color>
+    <color name="error">#F2B8B5</color>
+    <color name="on_error">#601410</color>
+    <color name="error_container">#8C1D18</color>
+    <color name="on_error_container">#F9DEDC</color>
+    <color name="highlight_match">#3E3420</color>
+    <color name="highlight_match_on">#F0D7A2</color>
+    <color name="low_confidence">#E6B15A</color>
+    <color name="low_confidence_container">#3A2C1A</color>
+    <color name="inverse_surface">#F6F5F1</color>
+    <color name="inverse_on_surface">#1C1B19</color>
+    <color name="scrim">#99000000</color>
+    <color name="badge_on">#FFFFFF</color>
+    <color name="player_well">#000000</color>
+    <color name="control_highlight">#1FF3F0E8</color>
+    <color name="secondary">#A8A396</color>
+    <color name="secondary_container">#2C2A26</color>
+    <color name="on_secondary">#12110F</color>
+    <color name="on_secondary_container">#F3F0E8</color>
+    <color name="tertiary">#A8A396</color>
+    <color name="tertiary_container">#2C2A26</color>
+    <color name="on_tertiary">#12110F</color>
+    <color name="on_tertiary_container">#F3F0E8</color>
+    <color name="search_fill">#2C2A26</color>
+    <color name="result_fill">#242220</color>
+    <color name="skeleton_fill">#2C2A26</color>
+    <color name="ic_launcher_bg">#121820</color>
+</resources>

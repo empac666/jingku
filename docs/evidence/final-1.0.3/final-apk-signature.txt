@@ -1,0 +1,14 @@
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): true
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: CN=Jingku Release, O=Jingku, C=CN
+Signer #1 certificate SHA-256 digest: 74e523f6f442d7983a3bff59855ae7258a1535214a59167b02e5b5a0ae6a5d11
+Signer #1 certificate SHA-1 digest: 17b234a61ee996ed8d18a6490f0a2554cfac7d38
+Signer #1 certificate MD5 digest: 6d772dd6a919218ec2af2e6679eab44f
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 3072

@@ -5,12 +5,13 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.BackgroundColorSpan
 import android.text.style.StyleSpan
+import android.text.style.ForegroundColorSpan
 
 object DialogueHighlighter {
     /**
      * 字面匹配高亮：查询与台词均 trim；无字面命中则不伪造高亮。
      */
-    fun highlight(label: String, query: String, highlightColor: Int): CharSequence {
+    fun highlight(label: String, query: String, highlightColor: Int, foregroundColor: Int = android.graphics.Color.BLACK): CharSequence {
         val q = query.trim()
         if (q.isEmpty()) return label
         val lowerLabel = label.lowercase()
@@ -24,6 +25,7 @@ object DialogueHighlighter {
             idx + q.length,
             Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
         )
+        span.setSpan(ForegroundColorSpan(foregroundColor), idx, idx + q.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         span.setSpan(StyleSpan(Typeface.BOLD), idx, idx + q.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         return span
     }

@@ -1,0 +1,37 @@
+[
+  {
+    "file": "embeddinggemma-2-740m.litertlm",
+    "bytes": 484622336,
+    "deflate_bytes": 391865923,
+    "sha256": "e7a8a2204b91e0f96e92960e84a09a89212e1633dcb7575a9bf3378b4df77f4c",
+    "packaged": true
+  },
+  {
+    "file": "model.int8.onnx",
+    "bytes": 239233841,
+    "deflate_bytes": 160168880,
+    "sha256": "c71f0ce00bec95b07744e116345e33d8cbbe08cef896382cf907bf4b51a2cd51",
+    "packaged": true
+  },
+  {
+    "file": "tokens.txt",
+    "bytes": 315894,
+    "deflate_bytes": 135378,
+    "sha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc",
+    "packaged": true
+  },
+  {
+    "file": "silero_vad.onnx",
+    "bytes": 643854,
+    "deflate_bytes": 508088,
+    "sha256": "9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6",
+    "packaged": true
+  },
+  {
+    "file": "sensevoice.tar.bz2",
+    "bytes": 1047870769,
+    "deflate_bytes": 1047959461,
+    "sha256": "f6b2a72ebcb1ac7a764d4cfccd886e6bcb2a95c4657c2199d0ba95ed4b9ea71a",
+    "packaged": false
+  }
+]

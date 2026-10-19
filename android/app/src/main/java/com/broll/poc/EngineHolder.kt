@@ -42,7 +42,7 @@ object EngineHolder {
             embedder = null
         }
         if (model == null) {
-            error("未找到有效嵌入模型（须为 ${AppConfig.MODEL_EXPECTED_BYTES} 字节）。请先下载。")
+            error(appContext.getString(R.string.models_preparing))
         }
         val t0 = System.nanoTime()
         val engine = LiteRtEmbedder(appContext, model.absolutePath)

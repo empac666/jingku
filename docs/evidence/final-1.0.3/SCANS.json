@@ -1,0 +1,7 @@
+{
+  "gitleaks_version": "8.30.1",
+  "directory_findings": 0,
+  "history_before_commit_findings": 0,
+  "supplementary_findings": 0,
+  "local_only": true
+}

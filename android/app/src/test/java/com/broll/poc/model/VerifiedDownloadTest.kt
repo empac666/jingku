@@ -2,55 +2,88 @@ package com.broll.poc.model
 
 import org.junit.Assert.*
 import org.junit.Test
-import java.net.ServerSocket
+import java.io.File
 import java.nio.file.Files
-import java.util.concurrent.atomic.AtomicInteger
-import kotlin.concurrent.thread
 
 class VerifiedDownloadTest {
-    private val abcSha = "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+    private val sha = "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+    private fun fixture(block: (File) -> Unit) {
+        val root = Files.createTempDirectory("bundled-model").toFile()
+        try { block(File(root, "model")) } finally { root.deleteRecursively() }
+    }
+    private fun prepare(file: File, hash: String = sha, version: Int = 4, text: String = "abc") =
+        BundledModelExtractor.prepare(file, 3, hash, version, available = { Long.MAX_VALUE },
+            open = { text.byteInputStream() })
 
-    @Test fun corruptExistingFileIsDeleted() {
-        val file = Files.createTempFile("model-corrupt", ".bin").toFile()
+    @Test fun successPublishesVerifiedModelAndMarker() = fixture { file ->
+        prepare(file)
+        assertEquals("abc", file.readText())
+        assertTrue(BundledModelExtractor.ready(file, 3, sha, 4))
+        assertFalse(File(file.path + ".tmp").exists())
+    }
+    @Test fun shaMismatchDeletesPartialAndDoesNotPublish() = fixture { file ->
+        assertTrue(runCatching { prepare(file, text = "bad") }.isFailure)
+        assertFalse(file.exists())
+        assertFalse(File(file.path + ".tmp").exists())
+        assertFalse(File(file.path + ".verified").exists())
+    }
+    @Test fun matchingMarkerSkipsHashAndAssetRead() = fixture { file ->
+        prepare(file)
+        BundledModelExtractor.prepare(file, 3, sha, 4, available = { error("must skip space check") },
+            open = { error("must skip asset read") })
+        assertTrue(BundledModelExtractor.ready(file, 3, sha, 4))
+    }
+    @Test fun partialTmpIsRestartedAfterInterruptedPreparation() = fixture { file ->
+        File(file.path + ".tmp").writeText("partial")
+        prepare(file)
+        assertEquals("abc",file.readText())
+        assertFalse(File(file.path + ".tmp").exists())
+    }
+    @Test fun changedSizeOrMarkerTriggersValidationAndRepair() = fixture { file ->
+        prepare(file)
+        file.writeText("wrong size")
+        assertFalse(BundledModelExtractor.ready(file, 3, sha, 4))
+        prepare(file)
+        File(file.path + ".verified").writeText("stale")
+        assertFalse(BundledModelExtractor.ready(file, 3, sha, 4))
+        prepare(file, version = 5)
+        assertTrue(BundledModelExtractor.ready(file, 3, sha, 5))
+        assertFalse(BundledModelExtractor.ready(file, 3, sha, 4))
+    }
+    @Test fun lowSpaceFailsBeforeOpeningAsset() = fixture { file ->
+        val failure = runCatching {
+            BundledModelExtractor.prepare(file, 3, sha, 4, available = { 0 }, open = { error("must not open") })
+        }.exceptionOrNull()
+        assertTrue(failure is InsufficientModelSpace)
+        assertFalse(file.exists())
+    }
+    @Test fun interruptedStreamLeavesNoPublishedOrPartialFile() = fixture { file ->
+        val failure = runCatching {
+            BundledModelExtractor.prepare(file, 3, sha, 4, available = { Long.MAX_VALUE },
+                open = { object : java.io.InputStream() {
+                    var reads = 0
+                    override fun read(): Int { if (reads++ == 0) return 97; throw java.io.IOException("interrupted") }
+                } })
+        }.exceptionOrNull()
+        assertTrue(failure is java.io.IOException)
+        assertFalse(file.exists())
+        assertFalse(File(file.path + ".tmp").exists())
+        prepare(file)
+        assertTrue(BundledModelExtractor.ready(file, 3, sha, 4))
+    }
+    @Test fun markerMismatchReextractsEvenWhenSizeMatches() = fixture { file ->
+        prepare(file)
+        File(file.path + ".verified").writeText("stale")
         file.writeText("bad")
-        try {
-            assertFalse(VerifiedDownload.validOrDelete(file, abcSha))
-            assertFalse(file.exists())
-        } finally { file.delete() }
+        prepare(file)
+        assertEquals("abc", file.readText())
     }
-
-    @Test fun corruptResponseIsRetriedAndOnlyVerifiedBytesAreSaved() = withServer(false) { url, attempts, dest ->
-        VerifiedDownload.download(url, dest, abcSha) { _, _ -> }
-        assertEquals(2, attempts.get())
-        assertEquals("abc", dest.readText())
-        assertFalse(java.io.File(dest.path + ".partial").exists())
-    }
-
-    @Test fun repeatedCorruptionFailsAndLeavesNoModelOrPartial() = withServer(true) { url, attempts, dest ->
-        assertTrue(runCatching { VerifiedDownload.download(url, dest, abcSha) { _, _ -> } }.isFailure)
-        assertEquals(2, attempts.get())
-        assertFalse(dest.exists())
-        assertFalse(java.io.File(dest.path + ".partial").exists())
-    }
-
-    private fun withServer(alwaysCorrupt: Boolean, block: (String, AtomicInteger, java.io.File) -> Unit) {
-        val root = Files.createTempDirectory("model-download").toFile()
-        val server = ServerSocket(0, 2, java.net.InetAddress.getByName("127.0.0.1"))
-        val attempts = AtomicInteger()
-        val worker = thread(isDaemon = true) {
-            try {
-                repeat(2) {
-                    server.accept().use { socket ->
-                        socket.soTimeout = 5000
-                        val input = socket.getInputStream().bufferedReader()
-                        while (!input.readLine().isNullOrEmpty()) { /* consume request headers */ }
-                        val body = if (attempts.incrementAndGet() == 1 || alwaysCorrupt) "bad" else "abc"
-                        socket.getOutputStream().write(("HTTP/1.1 200 OK\r\nContent-Length: 3\r\nConnection: close\r\n\r\n" + body).toByteArray())
-                    }
-                }
-            } catch (_: java.net.SocketException) { /* server closed by test cleanup */ }
-        }
-        try { block("http://127.0.0.1:${server.localPort}/", attempts, java.io.File(root, "model")) }
-        finally { server.close(); worker.join(6000); root.deleteRecursively() }
+    @Test fun freeSpaceBoundariesAndOverflow() {
+        val reserve = BundledModelExtractor.RESERVE_BYTES
+        assertFalse(BundledModelExtractor.hasSpace(reserve + 2, 3))
+        assertTrue(BundledModelExtractor.hasSpace(reserve + 3, 3))
+        assertFalse(BundledModelExtractor.hasSpace(-1, 3))
+        assertFalse(BundledModelExtractor.hasSpace(Long.MAX_VALUE, Long.MAX_VALUE))
+        assertFalse(BundledModelExtractor.hasSpace(Long.MAX_VALUE, -1))
     }
 }
