@@ -1,0 +1,20 @@
+# Grok audit — 270M evaluation and 1.0.4
+
+Paired Android-prefix LiteRT Hit@3 is 47/62 vs 47/62 (drop 0.00 pp). The 740M point 75.81% lies inside the 270M Wilson 95% interval [63.85%, 84.75%]. Both clauses of the user rule pass, so **ADOPT** matches that rule on the paired rates. Historical-prefix paired drop is also 0.00 pp. 1.0.4 AppConfig matches the signed APK/AAB. Frozen `hit()` on the saved rankings mismatches 0 rows.
+
+## Must-fix
+
+1. Frozen equality is the rate only. Android-prefix LiteRT 740M and 270M each change 6 frozen Hit@3 labels that cancel: losses `en03-q02`, `en03-q06`, `en04-q07`; gains `en02-q07`, `zh05-q05`, `zh05-q07`. Historical-prefix LiteRT is 46/62: losses `en03-q06`, `en04-q07` and gain `en06-q03` (net −1.61 pp vs frozen HF 47/62), still ≤3 pp. “One fewer Top-3” is the net. The decision sentence’s 75.81% is this Android re-run. Fresh HF rankings do replay frozen Hit@3.
+
+2. Android-prefix query matrices are bit-identical for 740M and 270M (140/140 gold, 76/76 calibration). 1132/1161 corpus rows match. The model card says 740M is this 270M text backbone plus vision and audio encoders. Shared threshold `0.8748952746391297` is `nextafter` of the same score (`neg03-zh` = `0.8748952746391296`), so it is one operating point for that tower under Android prefixes. 29 document rows differ (median max-abs 0.0045); `en01-w0001` differs by 0.176. No positive query changes its Top-3 set. One Hit@1 change, `en04-q02`, sits on those rows. State this as “drop unused encoders,” and list the discordant frozen ids above.
+
+## Note
+
+- Gold: 140 labels, low-confidence 31/31 kept, calibration vs gold query text overlap 0, dev/test videos disjoint. Threshold uses the 76-query iter1 split only; the saved boundary matches that rule. Test flag precision/recall is after selection. The 2/24 calibration accepts are `neg10-en` and `neg10-zh`, one paired fact already called out in iter1.
+- Wilson for 47/62 matches the published interval. Video-cluster bootstrap for Android 270M Hit@3 is [64.71%, 86.57%] and also contains 75.81%. The Wilson band is ~21 pp wide, so the ≤3 pp clause is the one that binds. Paired bootstrap [0, 0] and McNemar p=1 follow from zero discordant pairs; they are not a population equivalence test. McNemar treats queries as independent.
+- Decision prefixes match AppConfig (`task: search query | text: ` / `task: search result | text: `). Frozen protocol uses `task: search result | query: ` and an empty document prefix. Native output is 768 without `output_size`; search uses `FULL_DIM` 768. `TRUNC_DIM` 256 is unused.
+- HF vs LiteRT: archived replay exact; fresh HF corpus max abs diff 0.00332 and Hit@1 35/62 (`en03-q01`); fresh HF historical threshold `0.7889297008514405` vs frozen `0.7889297604560853`. LiteRT vs fresh HF corpus median cosine 0.990, max abs 0.039, 0 identical rows. Desktop LiteRT-LM 0.18.1 vs app Kotlin 0.18.0. Special tokens stay default null. 740M eval starts vision/audio backends, as 1.0.3 did; 270M does not, as 1.0.4 does.
+- Timestamp median/p90 keeps same-video Top-1 only (n=58 historical, n=59 Android).
+- SenseVoice 2025 vs 2024 is −3.23 pp Hit@3 on a rebuilt corpus (1504 vs 1610 windows; device VAD is 4 s / 250 ms). Scores use 740M. Proxy CER is Whisper disagreement. Keeping byte-identical 2024 ONNX matches “no regression.” Those rates are separate from the frozen 1161-window result.
+- One 740M Android corpus call stalled 314 s (`zh01-w0050`) while other jobs overlapped; that vector still matched 270M. The median hides the stall.
+- 1.0.4 build: versionCode 5. `MODEL_SHA256` `2d079ee2f6f066b1f368e8d7c819f55214eaef1d0513b312321901f30ab286fb`, 164,626,432 bytes, matches cache, APK `assets/offline/…`, and AAB `models/assets/offline/…` (AAB deflated). Threshold literal equals the JSON double. Generation 7 replaces 1.0.3’s 6; prefix `litert-search-result-270m-v2` replaces `litert-search-result-v1`, so user_version 6 cannot open. APK `9db753ac9a3f2c504ff8290033fb88b8cb545c49f58c28f5b827a260259de3de` (466,070,902 bytes). AAB `753d74c9731766e91b256ccb91daa903185f2848f012fd47ac4225a83fd2f1c0` (317,681,969 bytes). 2024 ONNX SHA matches AppConfig.

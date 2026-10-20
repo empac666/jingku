@@ -1,6 +1,6 @@
 # EmbeddingGemma 2 text-270M evaluation
 
-**Decision: ADOPT 270M; build 1.0.4 (versionCode 5), local only.** Hit@3 drop = 0.00 percentage points (≤3 pp: True); 740M point 75.81% lies within 270M Wilson 95% CI [63.85%, 84.75%]: True. Both user rules pass. These rules do not establish statistical equivalence or broad generalization.
+**Decision: ADOPT 270M; build 1.0.4 (versionCode 5), local only.** Hit@3 drop = 0.00 percentage points (≤3 pp: True); current Android-prefix LiteRT 740M point 75.81% lies within 270M Wilson 95% CI [63.85%, 84.75%]: True. Both user rules pass. These rules do not establish statistical equivalence or broad generalization.
 
 AI-audited gold, not human listening ground truth. No gold/queries/transcripts/segments/splits were edited or filtered. All 31 low-confidence gold labels remain.
 
@@ -12,7 +12,7 @@ Task requirements contain two different prefix protocols. Historical iter1/iter5
 
 The original historical 740M is HF BF16 text-tower inference (CPU2, batch8), not `.litertlm`. Replaying the archived rankings through the frozen evaluator exactly reproduces Hit@1=36/62 and Hit@3=47/62. Fresh HF queries against the archived HF corpus also reproduce those exact hit decisions. Fresh HF corpus + fresh queries yields Hit@1=35/62, Hit@3=47/62; the maximum vector difference and bridge evidence are in `eval-270m/historical-reproduction.json`. Our transformers is 5.20.2 vs archived lock 5.19.0; NumPy 2.5.4 vs 2.5.2; Torch 2.14.1+cpu and sentence-transformers 6.1.0 match. Fresh batch numeric differences can affect close ranks. No historical file or one-shot marker was touched.
 
-LiteRT-LM Python 0.18.1, CPU4 single requests, normalizes output, explicit output_size=768, default special-token/overflow behavior. Android uses Kotlin 0.18.0. 740M loads its CPU vision/audio backends as in Android; 270M initializes only the text backend. No image/audio inference. Historical-prefix LiteRT 740M yields 36/62 Top-1 and 46/62 Top-3: one fewer Top-3 than original HF (quantization/runtime). Thus exact historical inference reproduction is **not** claimed; the scoring/data replay passes, and the controlled LiteRT pair is valid for the intended packaged model swap. Both LiteRT files run, so an HF-only model substitution was unnecessary.
+LiteRT-LM Python 0.18.1, CPU4 single requests, normalizes output, explicit output_size=768, default special-token/overflow behavior. Android uses Kotlin 0.18.0. 740M loads its CPU vision/audio backends as in Android; 270M initializes only the text backend. No image/audio inference. Historical-prefix LiteRT 740M yields 36/62 Top-1 and 46/62 Top-3: net one fewer Top-3 than original HF (runtime/export numeric differences; two losses and one gain). Thus exact historical inference reproduction is **not** claimed; the scoring/data replay passes, and the controlled LiteRT pair is valid for the intended packaged model swap. Both LiteRT files run, so an HF-only model substitution was unnecessary.
 
 Wilson intervals below use positive queries as trials (requested supplementary statistic). Queries within a video are correlated; the historical iter5 interval was video-cluster bootstrap, not Wilson. Both are retained in JSON; paired delta uses video-cluster bootstrap (2000 draws, seed 20261016), with exact McNemar diagnostic. Historical iter1 event-level Wilson is not interchangeable with these query-level intervals.
 
@@ -96,3 +96,23 @@ Evidence and scripts: `eval-270m/input-manifest.json`, `historical-reproduction.
 Reproduce with the recorded `requirements.txt`, cached pinned model files, then `python evaluate_models.py --model {740m,270m} --protocol {historical,android}` (one combination per invocation), `python reproduce_historical.py`, `python evaluate_asr.py`, `python report_evaluation.py`; retain completed outputs in a separate copied output directory for a new run. Delete only generated runtime/build intermediates. Original frozen files remain read-only; input hashes are rechecked at completion.
 
 Release artifacts, checks, storage estimates, screenshots, source mirror and local commit: [REPORT-1.0.4.md](REPORT-1.0.4.md). Physical-device acceptance remains pending.
+
+## Grok audit
+
+Both must-fixes in [GROK-AUDIT.md](eval-270m/GROK-AUDIT.md) are accepted and corrected. **Decision remains ADOPT 270M.** The decision sentence's 75.81% baseline is the current Android-prefix LiteRT 740M re-run, not a claim of frozen per-query parity. [Resolution](eval-270m/AUDIT-RESOLUTION.md), [machine-readable replay evidence](eval-270m/audit-evidence.json), and `eval-270m/resolve_audit.py` record the checks. No gold, split, prefix, threshold or artifact changed during this audit.
+
+| Comparison against frozen historical HF (47/62 Hit@3) | Lost Hit@3 query ids | Gained Hit@3 query ids | Net |
+| --- | --- | --- | --- |
+| Android-prefix LiteRT, each of 740M and 270M | `en03-q02`, `en03-q06`, `en04-q07` | `en02-q07`, `zh05-q05`, `zh05-q07` | 0/62 (0.00 pp) |
+| Historical-prefix LiteRT, each of 740M and 270M | `en03-q06`, `en04-q07` | `en06-q03` | −1/62 (−1.61 pp) |
+| Fresh historical HF | none | none | 0/62 (0.00 pp) |
+
+Thus Android equals frozen HF only in aggregate Hit@3; “one fewer” historical LiteRT hit is a net change. Frozen `hit()` replay on all saved dev/test rankings has zero mismatches. Within each paired LiteRT protocol, 740M and 270M have zero discordant Hit@3 labels.
+
+The deployment change is **drop unused encoders**: the [pinned model card](https://huggingface.co/litert-community/embeddinggemma-2-text-270m-litert-lm/blob/9be6e8b90982095dc05c2bd162e4b954ee4dbac7/README.md) lists the same 130M transformer plus 140M embeddings for both models; 740M additionally includes 170M vision and 300M audio encoders. This supports a shared text backbone, not proof of identical exported weights. Saved Android-prefix matrices are bit-identical for all 140/140 gold queries and 76/76 calibration queries; corpus rows match 1132/1161. The 29 different document rows have median row maximum absolute difference 0.00448318 and maximum 0.17572719 (`en01-w0001`). Calibration documents match 494/505. No positive query changes its Top-3 set; the one Hit@1 label change is `en04-q02`. The cause of the document differences has not been isolated; exact end-to-end vector identity is not claimed.
+
+The shared Android threshold 0.8748952746391297 is `nextafter(0.8748952746391296, +∞)`, where that score belongs to calibration negative `neg03-zh`, for both exports. It is one operating point for the shared text tower with Android prefixes, not independent calibration evidence for two unrelated text models. Replaying the frozen boundary method reproduces it; calibration accepts `neg10-en` and `neg10-zh` (2/24, one paired fact). No recalibration change is needed.
+
+Both user adoption clauses still pass: paired Android Hit@3 drop 0.00 pp ≤3 pp; current 740M point 75.81% is within candidate Wilson [63.85%, 84.75%]. The approximately 21 pp Wilson width limits precision. Video-cluster bootstrap [64.71%, 86.57%] also contains the baseline. The zero paired bootstrap interval and McNemar p=1 describe this sample's zero discordance; they do not establish population equivalence, and McNemar assumes independent queries.
+
+Timing remains descriptive: a 740M Android corpus request for `zh01-w0050` stalled about 314 seconds during overlapping jobs, despite matching the 270M vector. Median/p90 conceal this tail; no controlled latency advantage is established. APK/AAB hashes, native 768-D output, generation 7, and 2024 ASR selection remain unchanged. Signed artifacts are reverified during audit; no rebuild or signing operation is needed for these reporting corrections. 1.0.3 remains preserved; physical-device acceptance is pending.

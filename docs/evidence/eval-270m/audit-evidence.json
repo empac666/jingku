@@ -1,0 +1,289 @@
+{
+  "method": "Frozen hit() replay on all saved rankings; exact float32 matrix comparison; calibration-only boundary replay. No new inference.",
+  "frozen_hit_mismatches": [],
+  "versus_frozen_HF": {
+    "740m-historical": {
+      "hit3_n": 46,
+      "losses": [
+        "en03-q06",
+        "en04-q07"
+      ],
+      "gains": [
+        "en06-q03"
+      ]
+    },
+    "740m-android": {
+      "hit3_n": 47,
+      "losses": [
+        "en03-q02",
+        "en03-q06",
+        "en04-q07"
+      ],
+      "gains": [
+        "en02-q07",
+        "zh05-q05",
+        "zh05-q07"
+      ]
+    },
+    "270m-historical": {
+      "hit3_n": 46,
+      "losses": [
+        "en03-q06",
+        "en04-q07"
+      ],
+      "gains": [
+        "en06-q03"
+      ]
+    },
+    "270m-android": {
+      "hit3_n": 47,
+      "losses": [
+        "en03-q02",
+        "en03-q06",
+        "en04-q07"
+      ],
+      "gains": [
+        "en02-q07",
+        "zh05-q05",
+        "zh05-q07"
+      ]
+    },
+    "hf740m-historical": {
+      "hit3_n": 47,
+      "losses": [],
+      "gains": []
+    }
+  },
+  "android_matrices": {
+    "query": {
+      "shape": [
+        140,
+        768
+      ],
+      "identical_rows": 140,
+      "different_rows": 0,
+      "changed_max_abs_median": 0,
+      "max_abs": 0.0
+    },
+    "calibration-query": {
+      "shape": [
+        76,
+        768
+      ],
+      "identical_rows": 76,
+      "different_rows": 0,
+      "changed_max_abs_median": 0,
+      "max_abs": 0.0
+    },
+    "corpus": {
+      "shape": [
+        1161,
+        768
+      ],
+      "identical_rows": 1132,
+      "different_rows": 29,
+      "changed_max_abs_median": 0.004483181983232498,
+      "max_abs": 0.17572718858718872,
+      "changed_rows": [
+        {
+          "id": "zh01-w0051",
+          "max_abs": 0.0029445700347423553
+        },
+        {
+          "id": "zh01-w0065",
+          "max_abs": 0.009240936487913132
+        },
+        {
+          "id": "zh01-w0080",
+          "max_abs": 0.006853380240499973
+        },
+        {
+          "id": "zh02-w0063",
+          "max_abs": 0.002529519610106945
+        },
+        {
+          "id": "zh03-w0028",
+          "max_abs": 0.003051250707358122
+        },
+        {
+          "id": "zh04-w0006",
+          "max_abs": 0.0030401740223169327
+        },
+        {
+          "id": "zh05-w0100",
+          "max_abs": 0.002224057912826538
+        },
+        {
+          "id": "zh07-w0015",
+          "max_abs": 0.006410140078514814
+        },
+        {
+          "id": "zh07-w0071",
+          "max_abs": 0.005717644467949867
+        },
+        {
+          "id": "zh07-w0072",
+          "max_abs": 0.005444832146167755
+        },
+        {
+          "id": "zh07-w0073",
+          "max_abs": 0.007986297830939293
+        },
+        {
+          "id": "en01-w0000",
+          "max_abs": 0.054911158978939056
+        },
+        {
+          "id": "en01-w0001",
+          "max_abs": 0.17572718858718872
+        },
+        {
+          "id": "en01-w0014",
+          "max_abs": 0.003002544865012169
+        },
+        {
+          "id": "en01-w0038",
+          "max_abs": 0.003331601619720459
+        },
+        {
+          "id": "en01-w0044",
+          "max_abs": 0.0027322652749717236
+        },
+        {
+          "id": "en01-w0053",
+          "max_abs": 0.004483181983232498
+        },
+        {
+          "id": "en02-w0010",
+          "max_abs": 0.0022417567670345306
+        },
+        {
+          "id": "en03-w0037",
+          "max_abs": 0.0073664747178554535
+        },
+        {
+          "id": "en04-w0012",
+          "max_abs": 0.03748796507716179
+        },
+        {
+          "id": "en04-w0013",
+          "max_abs": 0.021908540278673172
+        },
+        {
+          "id": "en04-w0014",
+          "max_abs": 0.02311614155769348
+        },
+        {
+          "id": "en04-w0021",
+          "max_abs": 0.0024757664650678635
+        },
+        {
+          "id": "en05-w0002",
+          "max_abs": 0.003267921507358551
+        },
+        {
+          "id": "en05-w0040",
+          "max_abs": 0.005241336300969124
+        },
+        {
+          "id": "en05-w0075",
+          "max_abs": 0.003385835327208042
+        },
+        {
+          "id": "en06-w0057",
+          "max_abs": 0.004194850102066994
+        },
+        {
+          "id": "en07-w0011",
+          "max_abs": 0.017323467880487442
+        },
+        {
+          "id": "en07-w0048",
+          "max_abs": 0.003276033792644739
+        }
+      ]
+    },
+    "calibration": {
+      "shape": [
+        505,
+        768
+      ],
+      "identical_rows": 494,
+      "different_rows": 11,
+      "changed_max_abs_median": 0.004189533647149801,
+      "max_abs": 0.010499769821763039
+    }
+  },
+  "android_positive_top3_set_changes": [],
+  "android_positive_top1_label_changes": [
+    "en04-q02"
+  ],
+  "calibration": {
+    "740m": {
+      "threshold": 0.8748952746391297,
+      "boundary_query": "neg03-zh",
+      "boundary_score": 0.8748952746391296,
+      "negative_accepts": [
+        "neg10-en",
+        "neg10-zh"
+      ]
+    },
+    "270m": {
+      "threshold": 0.8748952746391297,
+      "boundary_query": "neg03-zh",
+      "boundary_score": 0.8748952746391296,
+      "negative_accepts": [
+        "neg10-en",
+        "neg10-zh"
+      ]
+    }
+  },
+  "frozen_input_hashes_unchanged": true,
+  "prior_1_0_3_artifacts_unchanged": true,
+  "jingku-1.0.4-arm64-v8a.apk": {
+    "sha256": "9db753ac9a3f2c504ff8290033fb88b8cb545c49f58c28f5b827a260259de3de",
+    "bytes": 466070902
+  },
+  "jingku-1.0.4.aab": {
+    "sha256": "753d74c9731766e91b256ccb91daa903185f2848f012fd47ac4225a83fd2f1c0",
+    "bytes": 317681969
+  },
+  "decision": {
+    "decision": "ADOPT",
+    "hit3_drop_pp": 0.0,
+    "rule_drop_le_3pp": true,
+    "rule_740m_inside_270m_wilson95": true,
+    "baseline_point": 0.7580645161290323,
+    "candidate_point": 0.7580645161290323,
+    "candidate_wilson95": [
+      0.6384749248397259,
+      0.8475410379466626
+    ],
+    "threshold": 0.8748952746391297
+  },
+  "evidence_sha256": {
+    "release/eval-270m/740m-historical.json": "8f06af854250fe824eea1cd0c801e02662a3fc1021fd6980fae11b6f967f23d3",
+    "release/eval-270m/740m-historical-threshold.json": "be78c827b2890e92f300334b5228164091abb3bfbce279ba58bed6a0e4a5adc7",
+    "release/eval-270m/740m-historical-corpus.npy": "0d6fc900d75dd18d7ed385f18837559bd6ab90c5ce1dadd122997f07e70eeda9",
+    "release/eval-270m/740m-historical-query.npy": "a4224cf34e58d11ef283081b4236e614bd4a29892fa555dc3600ace191de3360",
+    "release/eval-270m/740m-historical-calibration-query.npy": "ef5aadd88b2557f329b0a881a5baf610dfc5ef91fd6b856488b513206ce9d906",
+    "release/eval-270m/740m-android.json": "d580b862728f37e429436c2c4e8f1c3f24c0fb382c322305a82159eeaa71e653",
+    "release/eval-270m/740m-android-threshold.json": "131215052c4c25940d49e6595812524fa1825d825899c9154baca8e83b54171f",
+    "release/eval-270m/740m-android-corpus.npy": "abf02bf6bcebaeeb386b6ef23d3b2c3c9642026d5d5768c2e2907f3e98e79330",
+    "release/eval-270m/740m-android-query.npy": "7ef8fcef0702ea3c0a6a425c1ebeeedc210adf5c1d7b346c14911e42377a4005",
+    "release/eval-270m/740m-android-calibration-query.npy": "c41fe0f541f280a491829ed56ce7be675144c92cc13eeb4c08dd08999d497a15",
+    "release/eval-270m/270m-historical.json": "f4d192413cbc69d35742469b03abd4abe98d6629cca64fc163e50458061c44cb",
+    "release/eval-270m/270m-historical-threshold.json": "c4a79e1d6f1ab9eabc99bc10638d7bd907f01e80e8d4f7c3ece1fb1c2599f075",
+    "release/eval-270m/270m-historical-corpus.npy": "45174851d68fcc167bb1dd981ea38e97c2b3d058e0ed39fa3737946a277605c3",
+    "release/eval-270m/270m-historical-query.npy": "7bc0134f9fb917ffcb56acf2bdf13810f4db5e406e5104f77db84c44e6d254df",
+    "release/eval-270m/270m-historical-calibration-query.npy": "ef5aadd88b2557f329b0a881a5baf610dfc5ef91fd6b856488b513206ce9d906",
+    "release/eval-270m/270m-android.json": "d0f2b69a2fee8c3f81a6d88adbab2434d32785aaa9ac7afcb0d23b40e03c7aea",
+    "release/eval-270m/270m-android-threshold.json": "f05c42c82f0cadc9836715ce79852d0068bac322b063f83a2328f787cfda9abc",
+    "release/eval-270m/270m-android-corpus.npy": "29bf2f8ca76e0e812656d9618236b180003c4e9292cc538b6fb7ed602e4ae1e8",
+    "release/eval-270m/270m-android-query.npy": "7ef8fcef0702ea3c0a6a425c1ebeeedc210adf5c1d7b346c14911e42377a4005",
+    "release/eval-270m/270m-android-calibration-query.npy": "c41fe0f541f280a491829ed56ce7be675144c92cc13eeb4c08dd08999d497a15",
+    "release/eval-270m/hf740m-historical.json": "4eef0db133c33041323e7c2fc380d1f3a353a71b9e11e4105a41f821ac847307",
+    "iter5/results/real-test.json": "bac2dc9e0d2784fff90ee31edd6dc00f39864575c79fc32486b32df3d28b08bb",
+    "release/eval-270m/270m-pinned-model-card.md": "0383b0b45232bd6c92c842f42ad7c8ef9364acdc18b61712efb805a9261f0348"
+  }
+}
