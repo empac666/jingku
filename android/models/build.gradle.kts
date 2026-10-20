@@ -6,18 +6,18 @@ assetPack {
 }
 
 // Weights remain in a cache outside the source tree; do not check generated assets in.
-val copyModels by tasks.registering(Copy::class) {
+val copyModels by tasks.registering(Sync::class) {
     from(rootProject.layout.projectDirectory.dir("../models-cache")) {
-        include("*.litertlm", "model.int8.onnx", "tokens.txt", "silero_vad.onnx")
+        include("embeddinggemma-2-text-270m.litertlm", "model.int8.onnx", "tokens.txt", "silero_vad.onnx")
     }
     into(layout.projectDirectory.dir("src/main/assets/offline"))
     doFirst {
         val cache = rootProject.file("../models-cache")
-        listOf("embeddinggemma-2-740m.litertlm", "model.int8.onnx", "tokens.txt", "silero_vad.onnx").forEach {
+        listOf("embeddinggemma-2-text-270m.litertlm", "model.int8.onnx", "tokens.txt", "silero_vad.onnx").forEach {
             check(cache.resolve(it).isFile) { "Missing pinned model: $it; run release/scripts/cache-models.py" }
         }
         val config = rootProject.file("app/src/main/java/com/broll/poc/AppConfig.kt").readText()
-        mapOf("embeddinggemma-2-740m.litertlm" to "MODEL_SHA256", "model.int8.onnx" to "ASR_ONNX_SHA256",
+        mapOf("embeddinggemma-2-text-270m.litertlm" to "MODEL_SHA256", "model.int8.onnx" to "ASR_ONNX_SHA256",
             "tokens.txt" to "ASR_VOCAB_SHA256", "silero_vad.onnx" to "VAD_SHA256").forEach { (file, key) ->
             val expected = Regex("const val $key = \"([a-f0-9]+)\"").find(config)!!.groupValues[1]
             val digest = java.security.MessageDigest.getInstance("SHA-256")

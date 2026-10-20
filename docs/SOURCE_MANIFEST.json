@@ -1,5 +1,5 @@
 {
-  "source": "release/app final 1.0.3; generated weights/build caches excluded",
+  "source": "release/app final 1.0.4; weights/build/cache excluded",
   "files": [
     {
       "path": "android/.gitignore",
@@ -7,7 +7,7 @@
     },
     {
       "path": "android/app/build.gradle.kts",
-      "sha256": "4df4965b4c4cb562cf1cc6ea391e99b1b081033880a03fe5c60a19041f1b2ed0"
+      "sha256": "bccf93eacabab238a8acec9bb690b547ed92a7c5c92e27230003463d522d8f5e"
     },
     {
       "path": "android/app/proguard-rules.pro",
@@ -19,15 +19,15 @@
     },
     {
       "path": "android/app/src/main/assets/NOTICE.txt",
-      "sha256": "a14f4646d3056cef0e2ce7554374c836e336484529831f9a04435d03c6f4be55"
+      "sha256": "d0c3100e0b91c88852e3bf8fb37d480e30196b74b77cbcc17c9e3df2f0b754e4"
     },
     {
       "path": "android/app/src/main/assets/licenses/ABOUT-en.txt",
-      "sha256": "56d0114057834805a6e356af4126d2bdec8f352c9e456322cdff21f760c56ae1"
+      "sha256": "a3f067ef3955bef5fc9cec27935ff5fa6ccb8a05cf7a738a9477f3f32372fbdd"
     },
     {
       "path": "android/app/src/main/assets/licenses/ABOUT-zh.txt",
-      "sha256": "da696985405fc23a45aefc846f9183fc311f34e08ffee6f59966d9358f4f80a4"
+      "sha256": "de0f11207cc73253b5f81759a36261a8d2495b8f009f44d228924c53f1090acd"
     },
     {
       "path": "android/app/src/main/assets/licenses/Commons-Compress-LICENSE.txt",
@@ -55,7 +55,7 @@
     },
     {
       "path": "android/app/src/main/assets/licenses/LICENSING.md",
-      "sha256": "ccc6eef1425639f55ade3d548db1c01c20fac29cb9b1b0163c0297cdb22fe77e"
+      "sha256": "c1a48f3fb655f19fc0baf8363153aa4c37c06e01c024b68546ea54f2d5538cdd"
     },
     {
       "path": "android/app/src/main/assets/licenses/LiteRT-LM-Apache-2.0.txt",
@@ -83,7 +83,7 @@
     },
     {
       "path": "android/app/src/main/java/com/broll/poc/AppConfig.kt",
-      "sha256": "70d1130f7bf8821f742d1a1e117cadecb5d8fa5562c102385d51219b46d2e4c7"
+      "sha256": "8dc0537f646091d28541140ca7dcaf8e57d0407558eadba2efd37a5fa2304b58"
     },
     {
       "path": "android/app/src/main/java/com/broll/poc/BrollApplication.kt",
@@ -131,11 +131,11 @@
     },
     {
       "path": "android/app/src/main/java/com/broll/poc/data/IndexDatabase.kt",
-      "sha256": "d5bc384fa65f13dd1075755c3c22a8de3aa502b81b4f44b542b62234d6aa97dd"
+      "sha256": "86fdacb9514a15f1551f8b5cd8426781a86c3f0af402277493dd288476863011"
     },
     {
       "path": "android/app/src/main/java/com/broll/poc/embed/Embedder.kt",
-      "sha256": "7191958445959b9d4b023447cde773583f5c492e5f60b7004a266a0ac56ba997"
+      "sha256": "2c936e471fe15c4e7c082e89129ff13dde333c6c2a11c84721d7720b745de1f2"
     },
     {
       "path": "android/app/src/main/java/com/broll/poc/embed/VectorMath.kt",
@@ -183,7 +183,11 @@
     },
     {
       "path": "android/app/src/main/java/com/broll/poc/model/ModelStore.kt",
-      "sha256": "bd29051722833577347b3722fe7af10164d6e264f094b04e25eba3aa315914a2"
+      "sha256": "13f4199c29242aae226ec98b8a6b2d97b89d698358e10ba02cf7b904e0d85cee"
+    },
+    {
+      "path": "android/app/src/main/java/com/broll/poc/model/RetiredEmbedding.kt",
+      "sha256": "eecb28e0d4dd16a35b80a560941a0c5980a4f4f257d49f79737b9fbfbe148d12"
     },
     {
       "path": "android/app/src/main/java/com/broll/poc/model/VerifiedDownload.kt",
@@ -331,7 +335,7 @@
     },
     {
       "path": "android/app/src/main/res/values/strings.xml",
-      "sha256": "61a997d490ca90ea7fcf5082a469302a1b70ce0b73dba04929dd48fc4efe916e"
+      "sha256": "700df88adeba7aa2e1a0f83013d4b4782beacc25ef44387b3410e815bf3bc213"
     },
     {
       "path": "android/app/src/main/res/values/themes.xml",
@@ -339,7 +343,7 @@
     },
     {
       "path": "android/app/src/main/res/values-en/strings.xml",
-      "sha256": "16e867c860a1bf74c9373d6b479049c4d8e39f3328d89cf035f68c3efa4a8198"
+      "sha256": "72e6a0c79cc6bfa344f55ea6b5dbea3252193bffed2c9e7cf304d97317d4ee81"
     },
     {
       "path": "android/app/src/main/res/values-night/bools.xml",
@@ -387,11 +391,11 @@
     },
     {
       "path": "android/app/src/test/java/com/broll/poc/model/VerifiedDownloadTest.kt",
-      "sha256": "db9800eee13e27151c24d23a391f0dd585a3e20b7e005c8fc4cade5e5a266ac9"
+      "sha256": "01c89d0fed8385accad5ce0643107cdc11383c95a0fbdeaee93e5b0936ce69f8"
     },
     {
       "path": "android/app/src/testDebug/java/com/broll/poc/BaselineScreenshotTest.kt",
-      "sha256": "3c919d2c685d5b3b68d15a1ad0af79c0fe2f04a05ca7e2042168cdb24ff71a47"
+      "sha256": "d6dc6eadd1f6a78e9f3ec8754e4c6fb84dff99d391e5e497c84db575213920c6"
     },
     {
       "path": "android/app/src/testDebug/java/com/broll/poc/UiStateTest.kt",
@@ -423,7 +427,7 @@
     },
     {
       "path": "android/models/build.gradle.kts",
-      "sha256": "b3659d5f8f509ea00c5c20a9ff5de1620f1453d631a458646a907fab13fbc323"
+      "sha256": "f70f5302ee1d0532973e3fe9dfac03d133966d7f62c4969a8683bb91157161e5"
     },
     {
       "path": "android/settings.gradle.kts",

@@ -2,6 +2,7 @@ package com.broll.poc.data
 
 import android.content.ContentValues
 import android.content.Context
+import com.broll.poc.R
 import com.broll.poc.AppConfig
 import com.broll.poc.embed.bytesToFloats
 import com.broll.poc.embed.cosine
@@ -60,7 +61,7 @@ class IndexDatabase private constructor(
                 if (version > 0 && version != AppConfig.INDEX_META_GENERATION) {
                     bundled.close()
                     return Pair(null, IndexDbOpenFailure(
-                        "索引库 schema 版本为 $version（需要 ${AppConfig.INDEX_META_GENERATION}）。请清空并重建索引。",
+                        app.getString(R.string.db_model_migration),
                     ))
                 }
                 if (version == AppConfig.INDEX_META_GENERATION) {

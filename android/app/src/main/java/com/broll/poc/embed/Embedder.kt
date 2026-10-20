@@ -26,7 +26,6 @@ class LiteRtEmbedder(
         normalize = true,
         insertSpecialTokens = null,
         outputSize = AppConfig.FULL_DIM,
-        visionTokensPerImage = AppConfig.VISION_TOKENS_PER_IMAGE,
     )
 
     override fun initialize() {
@@ -34,11 +33,8 @@ class LiteRtEmbedder(
         val config = EmbeddingEngineConfig(
             modelPath = modelPath,
             backend = cpu,
-            visionBackend = cpu,
-            audioBackend = cpu,
             cacheDir = cacheDir,
-            visionTokensPerImage = AppConfig.VISION_TOKENS_PER_IMAGE,
-        )
+            )
         val created = EmbeddingEngine(config)
         created.initialize()
         engine = created

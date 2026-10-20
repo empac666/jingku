@@ -6,12 +6,14 @@
 
 镜库是一款 Android 视频台词语义检索原型：选择本地视频，SenseVoice 转写，EmbeddingGemma 2 建立向量索引，输入中文或英文描述，查看余弦 Top-3 并点按跳转播放。视频不上传。模型随 APK/AAB 安装，准备、索引和搜索均在设备本地运行，无需联网。
 
+1.0.4 使用 270M 纯文本模型；相同 LiteRT/Android 前缀评估的 Top-3 命中均为 47/62。升级后须清空旧索引并重新索引，原视频保留。详见 [模型评估](docs/EVAL-270M.md)。
+
 ## 功能
 
 - 中文优先，可切换英文；Material 3，随系统深浅色。
 - 多选导入视频、串行索引、逐片和总进度、可取消。
 - Top-3 卡片：真实视频帧缩略图、台词字面高亮、时间戳、点按播放。
-- 每个结果的余弦低于 iter1 冻结 S2 阈值 `0.7889297604560853` 时显示“可能不准确”。分数不是正确概率。语义命中没有相同词时不伪造高亮。
+- 每个结果的余弦低于重新校准的 270M 阈值 `0.8748952746391297` 时显示“可能不准确”。分数不是正确概率。语义命中没有相同词时不伪造高亮。
 - 保留候选供用户判断；不运行判断模型，不做硬拒答。
 
 ## 使用与构建
@@ -40,7 +42,7 @@ export ANDROID_HOME=/path/to/android-sdk
 
 **标签由 AI 审计产生，非人工听辨金标。** Whisper 可能漏词或幻觉；审查者看过听者，投票不完全独立；31/140 条低置信仍保留，8 条曾因 ASR 证据不足由 yes 改成 no，ASR 漏词并不证明原音频无答案。素材来源集中于 VOA/ICANN；样本少、跨来源泛化有限。
 
-**本 release APK 未在真机测试，也没有复跑整套端上准确率。** Android 沿用 iter2 LiteRT EmbeddingGemma 2 文件、前缀、≤4 秒台词窗口和 token 对齐/段起点跳转；历史离线评估的模型表示、查询前缀和窗口中点判定不同。因此 **76% 不是本 APK 的实测准确率**，iter1 阈值在此仅为历史参考提示，未重新校准。不保证语义相近即事实正确，不保证跨语言或嘈杂语音的效果。
+**本 release APK 未在真机测试，也没有复跑整套端上准确率。** Android 已改用经过本轮评估的 270M 纯文本 LiteRT 文件，保留之前的前缀、≤4 秒台词窗口和 token 对齐/段起点跳转；历史离线评估的模型表示、查询前缀和窗口中点判定不同。因此 **76% 不是本 APK 的实测准确率**，当前阈值已按 iter1 冻结校准方法、使用 Android 前缀重新校准。不保证语义相近即事实正确，不保证跨语言或嘈杂语音的效果。
 
 判断模型路线在 iter6 未达到预注册成功标准，已经终止。发布链仅保留 SenseVoice + EmbeddingGemma 余弦 Top-3；没有 LLM 复核、翻译或云检索。
 
@@ -52,8 +54,8 @@ export ANDROID_HOME=/path/to/android-sdk
 
 ## 真实 Android 布局渲染
 
-56 张生产 XML 的 native-Skia 渲染，含中英文与深浅色。使用演示状态与抽象缩略图，不代表真机推理或播放验证。[来源与完整清单](screenshots/1.0.3/README.md)。
+60 张生产 XML 的 native-Skia 渲染，含中英文与深浅色。使用演示状态与抽象缩略图，不代表真机推理或播放验证。[来源与完整清单](screenshots/1.0.4/README.md)。
 
-[Home](screenshots/1.0.3/home-empty-en-light.png) · [主页](screenshots/1.0.3/home-empty-zh-light.png) · [Results](screenshots/1.0.3/search-results-en-light.png) · [深色结果](screenshots/1.0.3/search-results-zh-dark.png) · [Progress](screenshots/1.0.3/indexing-progress-en-light.png)
+[Home](screenshots/1.0.4/home-empty-en-light.png) · [主页](screenshots/1.0.4/home-empty-zh-light.png) · [Results](screenshots/1.0.4/search-results-en-light.png) · [深色结果](screenshots/1.0.4/search-results-zh-dark.png) · [Progress](screenshots/1.0.4/indexing-progress-en-light.png)
 
-![Jingku results](screenshots/1.0.3/search-results-en-light.png)
+![Jingku results](screenshots/1.0.4/search-results-en-light.png)

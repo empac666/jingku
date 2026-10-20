@@ -1,0 +1,46 @@
+{
+  "total": {
+    "MIN": 317126497,
+    "MAX": 317126497
+  },
+  "base": {
+    "MIN": 27213897,
+    "MAX": 27213897
+  },
+  "models": {
+    "MIN": 317126497,
+    "MAX": 317126497
+  },
+  "asset_pack_incremental": {
+    "MIN": 289912600,
+    "MAX": 289912600
+  },
+  "note": "--modules=models includes its base dependency; asset_pack_incremental is total minus base for the single install-time pack.",
+  "signed_aab_sha256": "753d74c9731766e91b256ccb91daa903185f2848f012fd47ac4225a83fd2f1c0",
+  "installed_split_apks": [
+    {
+      "path": "asset-slices/models-master.apk",
+      "bytes": 404832861
+    },
+    {
+      "path": "splits/base-arm64_v8a.apk",
+      "bytes": 54838013
+    },
+    {
+      "path": "splits/base-en.apk",
+      "bytes": 49498
+    },
+    {
+      "path": "splits/base-master.apk",
+      "bytes": 14284603
+    },
+    {
+      "path": "splits/base-xxhdpi.apk",
+      "bytes": 57691
+    },
+    {
+      "path": "splits/base-zh.apk",
+      "bytes": 33114
+    }
+  ]
+}

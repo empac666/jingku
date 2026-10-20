@@ -4,7 +4,7 @@ APK/AAB 包含模型权重。应用原创代码采用 MIT；模型与依赖分�
 
 SenseVoiceSmall：FunASR / FunAudioLLM（阿里巴巴），k2-fsa 转换。权重采用 FunASR 模型开源许可 v1.1；源码采用 MIT。商业使用解释尚未获得最终确认，不承诺无条件商用。完整条款与来源见随附许可核查文档。
 
-EmbeddingGemma 2 740M：Google DeepMind，litert-community 转换。固定版本的第二代模型声明 Apache-2.0，与旧版 Gemma 条款模型不同。完整许可见 EmbeddingGemma2-Apache-2.0.txt。
+EmbeddingGemma 2 text-270M：Google DeepMind，litert-community 转换。固定版本的第二代模型声明 Apache-2.0，与旧版 Gemma 条款模型不同。完整许可见 EmbeddingGemma2-Apache-2.0.txt。
 
 Silero VAD：Silero Team，MIT。
 sherpa-onnx、LiteRT-LM：Apache-2.0。

@@ -4,7 +4,7 @@ The APK/AAB redistributes model weights. Application code is MIT; each dependenc
 
 SenseVoiceSmall — FunASR / FunAudioLLM (Alibaba), converted by k2-fsa. Weights: FunASR Model Open Source License Agreement v1.1. Source code: MIT. Commercial-use interpretation remains unresolved; do not assume unconditional commercial clearance. See FunASR-MODEL-LICENSE.txt and the full license audit.
 
-EmbeddingGemma 2 740M — Google DeepMind; LiteRT conversion by litert-community. The pinned version 2 model declares Apache-2.0, unlike older Gemma-terms models. See EmbeddingGemma2-Apache-2.0.txt.
+EmbeddingGemma 2 text-270M — Google DeepMind; LiteRT conversion by litert-community. The pinned version 2 model declares Apache-2.0, unlike older Gemma-terms models. See EmbeddingGemma2-Apache-2.0.txt.
 
 Silero VAD — Silero Team, MIT.
 sherpa-onnx and LiteRT-LM — Apache-2.0.

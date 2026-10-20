@@ -1,3 +1,15 @@
+# 1.0.4 (versionCode 5) — local release
+
+中文：换用经同协议评估的 EmbeddingGemma 2 270M 纯文本模型，Top-3 与 740M 相同（47/62）；APK 减少约 320 MB，仍完整离线。低置信提示阈值重新校准；升级后提示清空旧索引并重新索引，原视频保留。新模型校验成功后清理旧提取文件。保留 1.0.3 界面、崩溃防护与 2024 SenseVoice；2025 ASR 有回退，未采用。未真机验证；仅本地构建，无发布。
+
+English: Adopt evaluated EmbeddingGemma 2 text-270M: identical Top-3 hit decisions (47/62), about 320 MB smaller APK, fully offline. Recalibrated warning threshold and index-generation migration require re-indexing; original videos remain. Verified replacement cleans the obsolete extracted model. Keeps 1.0.3 UI/crash safeguards and 2024 SenseVoice; the 2025 ASR regressed and was rejected. Physical-device acceptance pending; local only.
+
+APK: `out/jingku-1.0.4-arm64-v8a.apk`, 466,070,902 bytes, SHA-256 `9db753ac9a3f2c504ff8290033fb88b8cb545c49f58c28f5b827a260259de3de`.
+
+AAB: `out/jingku-1.0.4.aab`, 317,681,969 bytes, SHA-256 `753d74c9731766e91b256ccb91daa903185f2848f012fd47ac4225a83fd2f1c0`.
+
+38 release / 43 debug tests pass; lint 0 errors / 74 warnings; same signing certificate, v2/v3, 16KB native alignment, 60 native layout renders. [Evaluation](docs/EVAL-270M.md) · [release report](docs/REPORT-1.0.4.md). 1.0.3 artifacts retained.
+
 # 1.0.3 (versionCode 4) — final local release
 
 中文：离线模型随 APK/AAB 安装，无需首次联网下载。新增暖色 Material 3 深浅主题、搜索与台词卡片、导入队列与索引进度；修复活动索引时的空闲操作、最近搜索触控尺寸、结果元信息及许可文案。保留 1.0.2 启动防护与崩溃报告。权重再分发适用独立许可，SenseVoice 商用解释仍待确认。尚未真机验证；无上传或发布。

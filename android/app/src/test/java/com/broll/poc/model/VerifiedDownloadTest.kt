@@ -86,4 +86,19 @@ class VerifiedDownloadTest {
         assertFalse(BundledModelExtractor.hasSpace(Long.MAX_VALUE, Long.MAX_VALUE))
         assertFalse(BundledModelExtractor.hasSpace(Long.MAX_VALUE, -1))
     }
+    @Test fun replacementVersionRejectsOldMarkerAndCleanupKeepsOtherFiles() = fixture { file ->
+        prepare(file, version = 4)
+        assertFalse(BundledModelExtractor.ready(file, 3, sha, 5))
+        prepare(file, version = 5)
+        assertTrue(BundledModelExtractor.ready(file, 3, sha, 5))
+        val old = File(file.parentFile, "embeddinggemma-2-740m.litertlm")
+        old.writeText("old weights")
+        File(old.path + ".verified").writeText("old marker")
+        val unrelated = File(file.parentFile, "video.mp4").apply { writeText("keep") }
+        RetiredEmbedding.removeAfterReplacement(file.parentFile!!)
+        assertFalse(old.exists())
+        assertFalse(File(old.path + ".verified").exists())
+        assertEquals("abc", file.readText())
+        assertEquals("keep", unrelated.readText())
+    }
 }

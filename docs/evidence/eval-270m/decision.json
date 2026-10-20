@@ -1,0 +1,13 @@
+{
+  "decision": "ADOPT",
+  "hit3_drop_pp": 0.0,
+  "rule_drop_le_3pp": true,
+  "rule_740m_inside_270m_wilson95": true,
+  "baseline_point": 0.7580645161290323,
+  "candidate_point": 0.7580645161290323,
+  "candidate_wilson95": [
+    0.6384749248397259,
+    0.8475410379466626
+  ],
+  "threshold": 0.8748952746391297
+}

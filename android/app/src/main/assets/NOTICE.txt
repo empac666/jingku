@@ -5,6 +5,6 @@ Official SenseVoiceSmall weights: FunASR Model Open Source License Agreement v1.
 EmbeddingGemma 2 by Google DeepMind; LiteRT conversion by litert-community: Apache-2.0.
 sherpa-onnx, LiteRT-LM, AndroidX, Material Components, Commons Compress, Kotlin coroutines: Apache-2.0.
 ONNX Runtime, Silero VAD: MIT.
-Jingku 1.0.3 APK/AAB REDISTRIBUTES the pinned EmbeddingGemma 2, SenseVoiceSmall int8 and Silero VAD weights.
+Jingku 1.0.4 APK/AAB REDISTRIBUTES the pinned EmbeddingGemma 2, SenseVoiceSmall int8 and Silero VAD weights.
 Source code copies exclude weights. No third-party video/audio media is redistributed.
 SenseVoice commercial-use interpretation remains uncertain; see licenses/LICENSING.md.

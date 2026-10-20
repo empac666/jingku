@@ -118,4 +118,5 @@ EmbeddingGemma 2 · Google DeepMind</string>
         <item quantity="other">已完成 · %1$d 段台词</item>
     </plurals>
 <string name="index_running_title">正在索引视频</string>
+    <string name="db_model_migration">离线搜索模型已更新。旧索引需要清空并重新索引视频，才能继续搜索。视频原文件不会删除。</string>
 </resources>

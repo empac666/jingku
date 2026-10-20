@@ -124,4 +124,5 @@ EmbeddingGemma 2 · Google DeepMind</string>
         <item quantity="other">Done · %1$d lines</item>
     </plurals>
 <string name="index_running_title">Indexing videos</string>
+    <string name="db_model_migration">The offline search model has been updated. Clear the old index and re-index your videos to continue searching. Original video files will be kept.</string>
 </resources>

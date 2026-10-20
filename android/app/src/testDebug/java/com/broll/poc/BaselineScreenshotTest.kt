@@ -38,7 +38,7 @@ class BaselineScreenshotTest {
     @Test fun renderBaselineStates() {
         assumeTrue(System.getProperty("jingku.screenshots") == "true")
         val output = File(requireNotNull(System.getProperty("jingku.screenshotDir"))).apply { mkdirs() }
-        val states = listOf("home-empty", "home-queued", "home-with-library", "home-pending", "model-preparing", "indexing-progress", "searching", "search-results", "no-dialogue", "search-failed", "playback", "import-sheet", "about-dialog", "crash-dialog")
+        val states = listOf("home-empty", "home-queued", "home-with-library", "home-pending", "model-preparing", "indexing-progress", "searching", "search-results", "no-dialogue", "search-failed", "playback", "import-sheet", "about-dialog", "crash-dialog", "index-migration")
         val selected = System.getProperty("jingku.screenshotStates").orEmpty().split(",").filter { it.isNotBlank() }
         for (language in listOf("zh", "en")) for (dark in listOf(false, true)) for (name in states) {
             if (selected.isNotEmpty() && name !in selected) continue
@@ -66,7 +66,7 @@ class BaselineScreenshotTest {
                 "model-preparing" -> state = state.copy(preparing = true, preparePercent = 42)
                 "indexing-progress" -> state = state.copy(queued = 12, query = query, running = true, indexLine = context.getString(R.string.index_bar_title, 3, 12, "weekend.mp4"), indexPercent = 45)
                 "searching" -> state = state.copy(query = query, searching = true, skeletonVisible = true)
-                "search-results" -> state = state.copy(query = query, hits = List(2) { i -> Segment(i.toLong(), "content://fixture/$i", if (i == 0) "city-walk.mp4" else "weekend.mp4", "dialogue", 32.0, 36.0, line, if (i == 0) 0.85f else 0.71f) })
+                "search-results" -> state = state.copy(query = query, hits = List(2) { i -> Segment(i.toLong(), "content://fixture/$i", if (i == 0) "city-walk.mp4" else "weekend.mp4", "dialogue", 32.0, 36.0, line, if (i == 0) 0.93f else 0.71f) })
                 "no-dialogue" -> state = state.copy(query = query, noDialogue = true, recents = recents)
                 "search-failed" -> state = state.copy(query = query, failed = true)
                 "playback" -> state = state.copy(playback = true, playLine = DialogueHighlighter.highlight(line, query, context.getColor(R.color.highlight_match), context.getColor(R.color.highlight_match_on)), playTime = "00:32")
@@ -103,9 +103,15 @@ class BaselineScreenshotTest {
                     val dialog = ReadableDialogs.licenses(context, body)
                     shadowOf(Looper.getMainLooper()).idle(); captureScreenRoboImage(file); dialog.dismiss()
                 }
+                "index-migration" -> {
+                    val dialog = MaterialAlertDialogBuilder(context).setTitle(R.string.db_dialog_title)
+                        .setMessage(R.string.db_model_migration).setCancelable(false)
+                        .setPositiveButton(R.string.db_dialog_rebuild, null).setNegativeButton(R.string.db_dialog_later, null).show()
+                    shadowOf(Looper.getMainLooper()).idle(); captureScreenRoboImage(file); dialog.dismiss()
+                }
                 "crash-dialog" -> {
                     val dialog = MaterialAlertDialogBuilder(context).setTitle(R.string.crash_report_title)
-                        .setView(ReadableDialogs.reportView(context, "Jingku 1.0.3 (4)\nAndroid 15 · arm64-v8a\n\nDemo exception: offline preparation interrupted\n    at com.broll.poc.model.ModelStore.prepare(ModelStore.kt:15)"))
+                        .setView(ReadableDialogs.reportView(context, "Jingku 1.0.4 (5)\nAndroid 15 · arm64-v8a\n\nDemo exception: offline preparation interrupted\n    at com.broll.poc.model.ModelStore.prepare(ModelStore.kt:15)"))
                         .setCancelable(false).setPositiveButton(R.string.crash_copy, null).setNeutralButton(R.string.crash_share, null).setNegativeButton(R.string.crash_dismiss, null).show()
                     shadowOf(Looper.getMainLooper()).idle(); captureScreenRoboImage(file); dialog.dismiss()
                 }

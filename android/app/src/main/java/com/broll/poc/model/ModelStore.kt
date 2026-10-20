@@ -14,5 +14,5 @@ class ModelStore(private val context: Context) {
     fun prepare(progress: (Long, Long) -> Unit): File = BundledModelExtractor.prepare(
         modelFile, AppConfig.MODEL_EXPECTED_BYTES, AppConfig.MODEL_SHA256, BuildConfig.VERSION_CODE,
         open = { context.assets.open("offline/${AppConfig.MODEL_FILE_NAME}") }, progress = progress,
-    )
+    ).also { RetiredEmbedding.removeAfterReplacement(it.parentFile!!) }
 }

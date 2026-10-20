@@ -1,0 +1,22 @@
+{
+  "removed": [
+    "release/app/app/build",
+    "release/app/models/build",
+    "release/app/build",
+    "release/app/.gradle",
+    "release/app/.kotlin",
+    "release/app/models/src/main/assets/offline",
+    "release/out/eval270-intermediates",
+    "release/eval-270m/runtime-cache",
+    "release/eval-270m/.venv",
+    "release/eval-270m/__pycache__",
+    "release/models-cache/embeddinggemma-2-740m.litertlm_1792424004_484622336.vision_encoder.xnnpack_cache",
+    "release/models-cache/embeddinggemma-2-740m.litertlm_1792424004_484622336.vision_adapter.xnnpack_cache",
+    "release/models-cache/embeddinggemma-2-740m.litertlm_1792424004_484622336.streaming_audio_encoder.xnnpack_cache",
+    "release/models-cache/embeddinggemma-2-740m.litertlm_1792424004_484622336.audio_adapter.xnnpack_cache",
+    "release/models-cache/embeddinggemma-2-740m.litertlm_1792424004_484622336.text_encoder.xnnpack_cache",
+    "release/models-cache/embeddinggemma-2-text-270m.litertlm_1792455381_164626432.text_encoder.xnnpack_cache"
+  ],
+  "free_bytes": 31133229056,
+  "kept": "final APK/AAB, pinned cache, evaluation inputs/outputs/scripts, archived test/lint evidence, screenshots; prior 1.0.3 artifacts retained"
+}

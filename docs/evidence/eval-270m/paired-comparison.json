@@ -1,0 +1,28 @@
+{
+  "historical": {
+    "n": 62,
+    "gains": 0,
+    "losses": 0,
+    "delta": 0.0,
+    "mcnemar_exact_two_sided_p": 1,
+    "paired_video_bootstrap95": [
+      0.0,
+      0.0
+    ],
+    "replicates": 2000,
+    "seed": 20261016
+  },
+  "android": {
+    "n": 62,
+    "gains": 0,
+    "losses": 0,
+    "delta": 0.0,
+    "mcnemar_exact_two_sided_p": 1,
+    "paired_video_bootstrap95": [
+      0.0,
+      0.0
+    ],
+    "replicates": 2000,
+    "seed": 20261016
+  }
+}
